@@ -14,5 +14,7 @@ Server elite smp tidak hanya berdiri begitu saja tetapi kami memiliki sebuah kom
 <td>TyraGans<br /><img src="https://cdn.discordapp.com/avatars/852834888574042152/84e43f2f2a0917e8f00f453d892c6a9a.webp" width="80"><br />Admin</td>
 </tr>
 </table>
-## Ticket / bug / issue
-Jika kamu ingin membuat sesuatu silahkan selesaikan di issue kami akan menyelesaikan langsung [click here](https://github.com/promptdrake/docs/issues)
+Jika kamu ingin membuat sesuatu silahkan selesaikan di issue kami akan menyelesaikan langsung https://github.com/promptdrake/docs/issues
+
+### Note dari saya
+Kalian jika ada apa apa tanya aja langsung gausah malu nanti bakalan ditambahin ke sini
