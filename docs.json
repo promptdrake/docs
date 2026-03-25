@@ -46,7 +46,8 @@
             "expanded": true,
             "pages": [
               "pterodactyl/environment",
-              "pterodactyl/statuss"
+              "pterodactyl/statuss",
+              "pterodactyl/upload-folder"
             ]
           },
           {

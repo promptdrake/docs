@@ -1,0 +1,83 @@
+---
+title: "Upload Folder"
+description: "Cara upload folder ke server menggunakan SFTP"
+icon: "folder"
+---
+
+Upload folder ke server dapat dilakukan menggunakan SFTP client seperti FileZilla, WinSCP, atau Cyberduck.
+
+Gunakan data login SFTP yang tersedia di panel server.
+
+## Prerequisites
+
+- Server sudah aktif
+- Memiliki akses SFTP
+- SFTP client terinstall (FileZilla / WinSCP / Cyberduck)
+
+## Upload menggunakan SFTP
+
+<Steps>
+  <Step title="Buka panel server">
+    Masuk ke panel lalu buka halaman server Anda.
+
+    Salin data berikut dari menu **SFTP Details**:
+
+    - Host
+    - Port
+    - Username
+    - Password
+  </Step>
+  <Step title="Install aplikasi SFTP">
+    Install salah satu aplikasi berikut:
+
+    - FileZilla (recommended)
+    - WinSCP
+    - Cyberduck
+
+    Setelah install, buka aplikasinya.
+  </Step>
+  <Step title="Login ke server menggunakan SFTP">
+    Masukkan data login:
+
+    ```txt
+    Host: 103.xx.xx.xx
+    Username: container123
+    Password: password panel kamu
+    Port: 2022
+    ```
+
+    Klik Connect.
+  </Step>
+  <Step title="Buka folder container">
+    Setelah berhasil login, buka folder berikut:
+
+    /home/container
+
+    Folder ini adalah folder utama server Anda.
+  </Step>
+  <Step title="Upload folder">
+    Drag folder dari komputer ke folder server.
+
+    Atau klik kanan → Upload
+
+    Tunggu sampai proses selesai.
+
+    Jangan tutup aplikasi saat upload berjalan.
+  </Step>
+  <Step title="Restart server">
+    Setelah upload selesai:
+
+    Kembali ke panel Klik Restart
+
+    Agar file baru terbaca oleh server.
+  </Step>
+</Steps>
+
+Notes
+
+<Warning>
+  - Do not upload while server status is Installing
+  - Do not upload while server status is Suspended
+  - Use a stable connection
+  - Avoid uploading large files at once; never upload node\_modules to the panel
+</Warning>
