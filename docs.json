@@ -45,8 +45,8 @@
             "group": "Pterodactyl Panel",
             "expanded": true,
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "pterodactyl/environment",
+              "pterodactyl/status"
             ]
           },
           {
@@ -124,5 +124,9 @@
       "instagram": "https://instagram.com/promptdrake"
     }
   },
-  "description": "Aisbir Cloud Docs"
+  "description": "Aisbir Cloud Docs",
+  "appearance": {
+    "default": "light",
+    "strict": true
+  }
 }
