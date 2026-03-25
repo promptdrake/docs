@@ -1,28 +1,49 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Aisbir Cloud Nusantara",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#15a393",
+    "light": "#06c4c9",
+    "dark": "#148078"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/favicon.ico",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Support",
+          "icon": "phone",
+          "color": {
+            "light": "#979696",
+            "dark": "#979696"
+          },
+          "href": "https://portal.aisbirnusantara.com/dashboard/support"
+        },
+        {
+          "anchor": "Home",
+          "icon": "newspaper",
+          "color": {
+            "light": "#a0a0a0",
+            "dark": "#a0a0a0"
+          },
+          "href": "https://portal.aisbirnusantara.com"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "index"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Pterodactyl Panel",
+            "expanded": true,
             "pages": [
               "essentials/settings",
               "essentials/navigation"
@@ -67,21 +88,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -91,7 +98,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@aisbirnusantara.com"
       }
     ],
     "primary": {
@@ -114,9 +121,8 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "instagram": "https://instagram.com/promptdrake"
     }
-  }
+  },
+  "description": "Aisbir Cloud Docs"
 }
