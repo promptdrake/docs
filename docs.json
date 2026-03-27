@@ -47,7 +47,9 @@
             "pages": [
               "pterodactyl/environment",
               "pterodactyl/statuss",
-              "pterodactyl/upload-folder"
+              "pterodactyl/upload-folder",
+              "pterodactyl/manage-database",
+              "pterodactyl/create-tunnel"
             ]
           },
           {
