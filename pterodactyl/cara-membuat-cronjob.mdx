@@ -1,0 +1,46 @@
+---
+title: Cara Membuat Schedule / Cronjob Pterodactyl
+description: Panduan membuat schedule atau cronjob pada server Pterodactyl
+---
+---
+
+### 1. Pilih Menu Schedule
+
+Masuk ke dashboard server kamu, lalu:
+
+- Buka menu **Schedule**
+- Klik **New Schedule**
+
+![New Schedule](https://id-cdn.aisbirnusantara.com/documentation/Screenshot%202026-03-28%20064747.png)
+
+---
+
+### 2. Buat Cron Schedule
+
+Isi konfigurasi schedule sesuai kebutuhan:
+
+- **Name**: Nama schedule (contoh: Auto Restart)
+- **Minute / Hour / Day / Month / Day of Week**: Atur waktu cron
+- **Task**: Tambahkan task seperti:
+  - `command` → menjalankan perintah
+  - `power` → restart / stop / start server
+
+Contoh:
+- Restart server setiap hari jam 04:00
+- Menjalankan command tertentu secara berkala
+
+![Buat Cron](https://id-cdn.aisbirnusantara.com/documentation/Screenshot%202026-03-28%20064853.png)
+
+---
+
+## Tips 💡
+
+- Gunakan schedule untuk **auto restart server** agar performa tetap stabil
+- Jangan terlalu sering menjalankan cron agar tidak membebani server
+- Pastikan timezone server sudah sesuai
+
+---
+
+## Selesai 🎉
+
+Schedule berhasil dibuat dan akan berjalan otomatis sesuai waktu yang kamu tentukan.
