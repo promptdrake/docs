@@ -49,7 +49,10 @@
               "pterodactyl/statuss",
               "pterodactyl/upload-folder",
               "pterodactyl/manage-database",
-              "pterodactyl/create-tunnel"
+              "pterodactyl/create-tunnel",
+              "pterodactyl/cara-membuat-cronjob",
+              "pterodactyl/mengubah-environment-startup",
+              "pterodactyl/upgrade-plan"
             ]
           },
           {
