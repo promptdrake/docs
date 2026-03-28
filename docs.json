@@ -134,5 +134,8 @@
   "appearance": {
     "default": "light",
     "strict": true
+  },
+  "metadata": {
+    "timestamp": true
   }
 }
