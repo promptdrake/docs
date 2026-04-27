@@ -31,63 +31,64 @@
         }
       ]
     },
-    "tabs": [
+    "versions": [
       {
-        "tab": "Guides",
-        "groups": [
+        "version": "V1.0",
+        "tabs": [
           {
-            "group": "Introduction",
-            "pages": [
-              "index"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Introduction",
+                "pages": [
+                  "index",
+                  "terms"
+                ]
+              },
+              {
+                "group": "Pterodactyl Panel",
+                "expanded": true,
+                "pages": [
+                  "pterodactyl/environment",
+                  "pterodactyl/statuss",
+                  "pterodactyl/upload-folder",
+                  "pterodactyl/manage-database",
+                  "pterodactyl/create-tunnel",
+                  "pterodactyl/cara-membuat-cronjob",
+                  "pterodactyl/mengubah-environment-startup",
+                  "pterodactyl/upgrade-plan"
+                ]
+              },
+              {
+                "group": "Writing content",
+                "pages": [
+                  "essentials/markdown",
+                  "essentials/code",
+                  "essentials/images",
+                  "essentials/reusable-snippets"
+                ]
+              },
+              {
+                "group": "AI tools",
+                "pages": [
+                  "ai-tools/cursor"
+                ]
+              }
             ]
           },
           {
-            "group": "Pterodactyl Panel",
-            "expanded": true,
-            "pages": [
-              "pterodactyl/environment",
-              "pterodactyl/statuss",
-              "pterodactyl/upload-folder",
-              "pterodactyl/manage-database",
-              "pterodactyl/create-tunnel",
-              "pterodactyl/cara-membuat-cronjob",
-              "pterodactyl/mengubah-environment-startup",
-              "pterodactyl/upgrade-plan"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "tab": "API reference",
+            "groups": [
+              {
+                "group": "API documentation",
+                "pages": [
+                  "api-reference/introduction"
+                ]
+              },
+              {
+                "group": "Api Response",
+                "openapi": "api-reference/openapi.json"
+              }
             ]
           }
         ]
