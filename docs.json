@@ -86,6 +86,7 @@
           {
             "group": "2026",
             "pages": [
+              "main",
               {
                 "group": "tele",
                 "pages": [
@@ -99,8 +100,7 @@
               {
                 "group": "hosting",
                 "pages": []
-              },
-              "main"
+              }
             ]
           }
         ]
