@@ -33,6 +33,69 @@
     },
     "tabs": [
       {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "index",
+              "terms"
+            ]
+          },
+          {
+            "group": "Pterodactyl Panel",
+            "expanded": true,
+            "pages": [
+              "pterodactyl/environment",
+              "pterodactyl/statuss",
+              "pterodactyl/upload-folder",
+              "pterodactyl/manage-database",
+              "pterodactyl/create-tunnel",
+              "pterodactyl/cara-membuat-cronjob",
+              "pterodactyl/mengubah-environment-startup",
+              "pterodactyl/upgrade-plan"
+            ]
+          },
+          {
+            "group": "Writing content",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
+            ]
+          },
+          {
+            "group": "AI tools",
+            "pages": [
+              "ai-tools/cursor",
+              "ai-tools/claude-code",
+              "ai-tools/windsurf"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "API documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Untitled Tab",
         "versions": [
           {
@@ -94,6 +157,17 @@
                   }
                 ]
               }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Patch Note",
+        "groups": [
+          {
+            "group": "2026",
+            "pages": [
+              "8-mei-2026"
             ]
           }
         ]
