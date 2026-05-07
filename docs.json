@@ -86,7 +86,20 @@
           {
             "group": "2026",
             "pages": [
-              "8-mei-2026"
+              {
+                "group": "tele",
+                "pages": [
+                  "8-mei-2026"
+                ]
+              },
+              {
+                "group": "wa",
+                "pages": []
+              },
+              {
+                "group": "hosting",
+                "pages": []
+              }
             ]
           }
         ]
