@@ -81,9 +81,6 @@
         ]
       },
       {
-        "tab": "API reference"
-      },
-      {
         "tab": "Patch Note",
         "groups": [
           {
@@ -102,7 +99,8 @@
               {
                 "group": "hosting",
                 "pages": []
-              }
+              },
+              "main"
             ]
           }
         ]
