@@ -7,7 +7,10 @@
     "light": "#06c4c9",
     "dark": "#148078"
   },
-  "favicon": "/images/favicon.ico",
+  "favicon": {
+    "light": "/images/favicon.ico",
+    "dark": "/images/favicon.ico"
+  },
   "navigation": {
     "global": {
       "anchors": [
@@ -148,7 +151,7 @@
   "description": "Aisbir Cloud Docs",
   "appearance": {
     "default": "light",
-    "strict": true
+    "strict": false
   },
   "metadata": {
     "timestamp": true
