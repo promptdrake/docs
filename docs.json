@@ -46,14 +46,14 @@
             "group": "Pterodactyl Panel",
             "expanded": true,
             "pages": [
+              "pterodactyl/cara-membuat-cronjob",
+              "pterodactyl/upgrade-plan",
+              "pterodactyl/mengubah-environment-startup",
               "pterodactyl/environment",
               "pterodactyl/statuss",
               "pterodactyl/upload-folder",
               "pterodactyl/manage-database",
-              "pterodactyl/create-tunnel",
-              "pterodactyl/cara-membuat-cronjob",
-              "pterodactyl/mengubah-environment-startup",
-              "pterodactyl/upgrade-plan"
+              "pterodactyl/create-tunnel"
             ]
           },
           {
@@ -62,104 +62,23 @@
               "essentials/markdown",
               "essentials/code",
               "essentials/images",
+              "ai-tools/cursor",
               "essentials/reusable-snippets"
-            ]
+            ],
+            "hidden": true
           },
           {
             "group": "AI tools",
             "pages": [
-              "ai-tools/cursor",
               "ai-tools/claude-code",
               "ai-tools/windsurf"
-            ]
+            ],
+            "hidden": true
           }
         ]
       },
       {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Untitled Tab",
-        "versions": [
-          {
-            "version": "V1.0",
-            "tabs": [
-              {
-                "tab": "Guides",
-                "groups": [
-                  {
-                    "group": "Introduction",
-                    "pages": [
-                      "index",
-                      "terms"
-                    ]
-                  },
-                  {
-                    "group": "Pterodactyl Panel",
-                    "expanded": true,
-                    "pages": [
-                      "pterodactyl/environment",
-                      "pterodactyl/statuss",
-                      "pterodactyl/upload-folder",
-                      "pterodactyl/manage-database",
-                      "pterodactyl/create-tunnel",
-                      "pterodactyl/cara-membuat-cronjob",
-                      "pterodactyl/mengubah-environment-startup",
-                      "pterodactyl/upgrade-plan"
-                    ]
-                  },
-                  {
-                    "group": "Writing content",
-                    "pages": [
-                      "essentials/markdown",
-                      "essentials/code",
-                      "essentials/images",
-                      "essentials/reusable-snippets"
-                    ]
-                  },
-                  {
-                    "group": "AI tools",
-                    "pages": [
-                      "ai-tools/cursor"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "API reference",
-                "groups": [
-                  {
-                    "group": "API documentation",
-                    "pages": [
-                      "api-reference/introduction"
-                    ]
-                  },
-                  {
-                    "group": "Ecommerce",
-                    "openapi": "https://storetes.aisbirnusantara.com/api-docs.json"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+        "tab": "API reference"
       },
       {
         "tab": "Patch Note",
