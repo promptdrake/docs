@@ -22,7 +22,7 @@
         },
         {
           "anchor": "Home",
-          "icon": "newspaper",
+          "icon": "house",
           "color": {
             "light": "#a0a0a0",
             "dark": "#a0a0a0"
@@ -108,7 +108,7 @@
   },
   "logo": {
     "light": "/images/logos.svg",
-    "dark": "/images/logo-dark.svg"
+    "dark": "/images/logos.svg"
   },
   "navbar": {
     "links": [
@@ -137,7 +137,12 @@
   },
   "footer": {
     "socials": {
-      "instagram": "https://instagram.com/promptdrake"
+      "instagram": "https://instagram.com/aisbirnusantara",
+      "website": "https://aisbirnusantara.com",
+      "telegram": "https://t.me/aisbirnusantara",
+      "youtube": "https://www.youtube.com/@aisbirnusantara",
+      "threads": "https://www.threads.com/@aisbirnusantara",
+      "discord": "https://discord.gg/FkEfeDFh7c"
     }
   },
   "description": "Aisbir Cloud Docs",
@@ -147,5 +152,8 @@
   },
   "metadata": {
     "timestamp": true
+  },
+  "seo": {
+    "indexing": "all"
   }
 }
