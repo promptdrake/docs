@@ -80,31 +80,6 @@
             "hidden": true
           }
         ]
-      },
-      {
-        "tab": "Patch Note",
-        "groups": [
-          {
-            "group": "2026",
-            "pages": [
-              "main",
-              {
-                "group": "tele",
-                "pages": [
-                  "8-mei-2026"
-                ]
-              },
-              {
-                "group": "wa",
-                "pages": []
-              },
-              {
-                "group": "hosting",
-                "pages": []
-              }
-            ]
-          }
-        ]
       }
     ]
   },
