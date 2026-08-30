@@ -1,0 +1,84 @@
+---
+title: "Terms of Service & Fair Use Policy"
+description: "Terms of service, resource limits, and Fair Use Policy (FUP) for Aisbir Cloud Nusantara"
+icon: "brake-warning"
+---
+
+These Terms and Conditions govern the use of all services provided by **Aisbir Cloud Nusantara**, including Pterodactyl Panel, DirectAdmin Web Hosting, VPS, and related cloud services.
+
+---
+
+## 1. Acceptance of Terms
+
+By registering, purchasing, or using any services from **Aisbir Cloud Nusantara**, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service and our **Fair Use Policy (FUP)**.
+
+---
+
+## 2. Fair Use Policy (FUP) & Resource Governance
+
+All plans operating on shared infrastructure are subject to our Fair Use Policy to maintain stability and performance for all users sharing the physical host nodes.
+
+### A. Pterodactyl Panel (RAM & CPU Limits)
+
+<Warning>
+**RAM & CPU Sustained Usage Limits**:
+If you purchase a service with a defined resource allocation (e.g. **4 GB RAM**), you **CANNOT use 100% of the RAM every hour continuously** or maintain an ongoing burst workload.
+</Warning>
+
+- **RAM / Memory Allocation**: Your plan's RAM allocation is an upper ceiling (*peak headroom*), not a 24/7 continuous utilization benchmark. Running applications near 100% RAM non-stop risks destabilizing the host node, and the container will automatically be terminated by the kernel (*Out of Memory / OOM Killed*).
+- **CPU Usage**: Average CPU usage exceeding **85% sustained over a 1-hour window** will be automatically capped (*CPU throttling*). Persistent CPU overload threatening node performance may result in temporary suspension.
+- **Disk I/O**: Disk read/write operations must remain within reasonable thresholds. Scripts or bots causing excessive *IOWait* on shared enterprise NVMe arrays will have their I/O throughput restricted.
+
+### B. DirectAdmin Web Hosting
+
+- **Storage Usage**: Hosting disk allocations are **strictly reserved for legitimate website files** (HTML, PHP, CSS, JS, MySQL databases, and media assets linked directly to your web pages).
+  - **Prohibited**: Utilizing hosting space as external backup storage, personal cloud/file-lockers, movie/music sharing hubs, or public download mirrors.
+- **Email Rate Limits**: Outbound emails are limited to **200 emails per day per account** to protect mail server IP reputation and eliminate spamming activities.
+- **CPU & Memory**: Each hosting account operates under CloudLinux/cgroup thresholds. Scripts causing runaway infinite loops or high server loads will be automatically throttled.
+
+---
+
+## 3. Refund & Payment Policy
+
+- **No Refund**: All products, service subscriptions, and deposit top-ups are strictly **Non-Refundable** once processed.
+- **Exceptions**: In the event of a critical service disruption originating solely from Aisbir Cloud Nusantara infrastructure, refunds will be credited as **Account Balance (Credit)** in the client area.
+
+---
+
+## 4. Account Security & Device Limits
+
+- **Account Limits**: Each individual customer/device is permitted to register **1 account only** to prevent promotional abuse and fraud.
+- **User Responsibility**: You are solely responsible for maintaining the confidentiality of your login credentials and API keys.
+
+---
+
+## 5. Strictly Prohibited Content & Activities
+
+Aisbir Cloud Nusantara operates under Indonesian legal jurisdiction. We enforce a zero-tolerance policy against:
+
+<CardGroup cols={2}>
+  <Card title="Cryptocurrency Mining" icon="microchip" color="#ef4444">
+    Any form of cryptocurrency mining (crypto mining) is strictly prohibited and results in immediate permanent termination.
+  </Card>
+  <Card title="Gambling & Betting" icon="dice" color="#ef4444">
+    Hosting online gambling websites, betting bots, or casino scripts is strictly forbidden.
+  </Card>
+  <Card title="Scam & Phishing" icon="shield-virus" color="#ef4444">
+    Phishing sites, malware hosting, botnet C2 servers, spam bots, or digital scams.
+  </Card>
+  <Card title="DDoS & Network Abuse" icon="network-wired" color="#ef4444">
+    DDoS attacks, network stressers, open proxies, port scanning, or torrent seeding.
+  </Card>
+</CardGroup>
+
+---
+
+## 6. Suspension & Service Termination
+
+Aisbir Cloud Nusantara reserves the right to suspend or terminate any service without prior notice if a violation of these terms occurs, in order to protect overall system integrity.
+
+---
+
+## 7. Policy Amendments
+
+We reserve the right to amend these terms at any time. Updates take effect immediately upon publication on this documentation portal.

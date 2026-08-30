@@ -1,0 +1,47 @@
+---
+title: "How to Change PHP Version"
+description: "Guide to switching PHP versions and configuring PHP settings in DirectAdmin hosting"
+icon: "php"
+---
+
+DirectAdmin allows you to easily switch the PHP version of your website in just a few clicks to ensure compatibility with your scripts, frameworks, or CMS platforms (such as WordPress, Laravel, CodeIgniter, etc.).
+
+---
+
+### 1. Open PHP Settings Menu
+
+There are 2 ways to access PHP Settings in DirectAdmin:
+
+- **Method 1**: Under the **Account Manager** menu, click the **PHP Settings** icon.
+- **Method 2**: On your dashboard in the **Your Account** widget, click the pencil icon (**✏️ PHP 8.1**) next to the *PHP Version* field.
+
+<Frame caption="Select PHP Settings under Account Manager">
+  ![Account Manager Menu](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-icons.png)
+</Frame>
+
+---
+
+### 2. Select Desired PHP Version
+
+1. In the **PHP Version** dropdown selector, choose the PHP version required by your application (e.g. `PHP 8.1`, `PHP 8.2`, `PHP 8.3`, etc.).
+2. Click the blue **UPDATE VERSION** button.
+
+<Frame caption="Select PHP version and click Update Version">
+  ![PHP Settings Page](https://id-cdn.aisbirnusantara.com/documentation/directadmin-php-settings-page.png)
+</Frame>
+
+---
+
+### 3. Configure Additional Overrides (Optional)
+
+If your website requires specific PHP directives:
+
+- **display_errors**: Switch to `On` for development/debugging, or `Off` for production environments.
+- **memory_limit** / **max_execution_time**: Add custom overrides as needed.
+- Click **Add** to save your new configuration override.
+
+---
+
+## Done 🎉
+
+Your website's PHP version will be updated immediately without requiring a server reboot!

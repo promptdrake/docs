@@ -1,0 +1,83 @@
+---
+title: "Cara Setup Email DirectAdmin dengan Cloudflare"
+description: "Panduan menghubungkan layanan email DirectAdmin ke Cloudflare menggunakan DNS MX, A record, dan SPF"
+icon: "envelope"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/-0eKgMagfUY"
+  title="Tutorial Setup Email DirectAdmin ke Cloudflare"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+Jika domain website kamu menggunakan DNS nameserver dari **Cloudflare**, kamu perlu menyalin beberapa catatan DNS email dari DirectAdmin ke dashboard Cloudflare agar dapat mengirim dan menerima email bisnis (`nama@domainkamu.com`).
+
+---
+
+### 1. Cek DNS Record Email di DirectAdmin
+
+1. Masuk ke panel DirectAdmin hosting kamu.
+2. Pada menu **Account Manager**, klik ikon **DNS Management**.
+
+<Frame caption="Pilih DNS Management pada menu Account Manager">
+  ![Menu DNS Management](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-dns-icon.png)
+</Frame>
+
+Perhatikan nilai-nilai DNS record bawaan email kamu:
+
+<Frame caption="Tabel DNS Management di DirectAdmin">
+  ![DNS Management Records Table](https://id-cdn.aisbirnusantara.com/documentation/directadmin-dns-management-records-table.png)
+</Frame>
+
+---
+
+### 2. Tambahkan DNS Records ke Dashboard Cloudflare
+
+Buka dashboard [Cloudflare](https://dash.cloudflare.com) -> pilih domain kamu -> buka tab **DNS** -> **Records**, lalu tambahkan catatan berikut:
+
+#### A. A Record untuk Subdomain Mail
+- **Type**: `A`
+- **Name**: `mail`
+- **IPv4 Address**: Masukkan IP server DirectAdmin kamu (contoh: `82.25.62.14`).
+- **Proxy status**: **DNS Only (Awan Abu-abu / Unproxied)**
+
+<Warning>
+**PENTING - Proxy Status Wajib DNS Only**:
+Subdomain `mail` **TIDAK BOLEH** diproxy oleh Cloudflare (jangan awan oranye). Cloudflare hanya memproxy traffic HTTP/HTTPS, sedangkan protokol email (SMTP/IMAP/POP3) memerlukan koneksi langsung agar email dapat terkirim dan diterima.
+</Warning>
+
+#### B. MX Record (Mail Exchanger)
+- **Type**: `MX`
+- **Name**: `@`
+- **Mail server**: `mail.domainkamu.com`
+- **Priority**: `10`
+- **TTL**: `Auto`
+
+#### C. TXT Record (SPF - Anti Spam / Sender Policy Framework)
+- **Type**: `TXT`
+- **Name**: `@`
+- **Content**: `"v=spf1 a mx ip4:82.25.62.14 ~all"` (sesuaikan dengan IP server kamu dari DNS Management DirectAdmin).
+- **TTL**: `Auto`
+
+---
+
+### 3. Konfigurasi Client Email (Webmail / Outlook / Gmail)
+
+Setelah DNS tersimpan dan terpropagasi:
+
+- **Webmail URL**: `https://domainkamu.com/roundcube` atau `https://webmail.domainkamu.com`
+- **Incoming Server (IMAP/POP3)**: `mail.domainkamu.com` (Port 993 SSL / Port 995 SSL)
+- **Outgoing Server (SMTP)**: `mail.domainkamu.com` (Port 465 SSL / Port 587 STARTTLS)
+- **Username**: Alamat email lengkap kamu (contoh: `info@domainkamu.com`)
+- **Password**: Password akun email yang kamu buat di menu *E-mail Accounts* DirectAdmin.
+
+---
+
+## Selesai 🎉
+
+Email domain profesional kamu sekarang sudah terhubung dengan Cloudflare dan siap digunakan untuk kirim-terima pesan!

@@ -1,0 +1,114 @@
+---
+title: "How to Deploy Next.js on Pterodactyl"
+description: "Comprehensive guide to deploying a Next.js production app on Aisbir Cloud Pterodactyl server"
+icon: "react"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/gqYD7HiQr7g"
+  title="Tutorial Deploy Next.js on Pterodactyl"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+This guide explains how to deploy a production **Next.js** application on an Aisbir Cloud Pterodactyl Node.js server.
+
+---
+
+### 1. Configure the `start` Script in `package.json` or Use `server.js`
+
+To ensure Next.js binds to the dynamic port allocated by Pterodactyl, configure the `start` script in `package.json` using `$SERVER_PORT`:
+
+```json package.json
+{
+  "name": "my-nextjs-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${SERVER_PORT:-3000} -H 0.0.0.0"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  }
+}
+```
+
+*Alternatively*, you can use a custom **`server.js`** runner:
+
+```javascript server.js
+/* eslint-disable @typescript-eslint/no-require-imports */
+const { createServer } = require("http");
+const next = require("next");
+const { parse } = require("url");
+
+const port = process.env.SERVER_PORT || process.env.PORT || 3000;
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
+
+app.prepare().then(() => {
+    createServer((req, res) => {
+        const parsedUrl = parse(req.url, true);
+        handle(req, res, parsedUrl);
+    }).listen(port, "0.0.0.0", (err) => {
+        if (err) throw err;
+        console.log(`Next.js server listening on http://0.0.0.0:${port}`);
+    });
+});
+```
+
+---
+
+### 2. Build Your Application Locally
+
+Run the build command on your computer before uploading:
+
+```bash
+npm run build
+```
+
+---
+
+### 3. Compress Project Files into a ZIP Archive
+
+Select and compress the following files into a single `.zip` archive:
+- `.next` folder
+- `public` folder (if available)
+- `package.json` & `package-lock.json`
+- `server.js` (if using custom server)
+- `.env` (if containing environment variables)
+
+<Warning>
+**DO NOT upload `node_modules`!** Pterodactyl will execute `npm install` automatically on server startup.
+</Warning>
+
+---
+
+### 4. Upload and Extract in Pterodactyl File Manager
+
+1. In your Pterodactyl server panel, open the **Files** menu.
+2. Upload your `.zip` archive.
+3. Click the three dots icon (**⋮**) on the `.zip` file and select **Unarchive** to unpack files to `/home/container`.
+
+---
+
+### 5. Configure Startup Tab & Start Server
+
+1. Open the **Startup** tab:
+   - **Main File / Startup File**: Set to `server.js` (if using custom server) or `index.js`.
+   - **Node Version**: Select your preferred Node.js version (e.g. Node 18, Node 20, or Node 22).
+2. Go to the **Console** tab and click **Start**.
+3. Pterodactyl will install dependencies and launch your Next.js application!
+
+---
+
+## Linking a Custom Domain
+
+To access your Next.js application via a standard domain without specifying port numbers, use our **Reverse Proxy** feature (see [How to Add Reverse Proxy](/pterodactyl/reverse-proxy)).

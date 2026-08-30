@@ -1,0 +1,45 @@
+---
+title: "Troubleshooting & Common Errors"
+description: "Quick solutions for common issues such as Error 137 OOM, EADDRINUSE, crash loops, and full disks"
+icon: "wrench"
+---
+
+If your server encounters errors or fails to boot, use these quick troubleshooting solutions:
+
+---
+
+### 1. Error 137 / Sudden Shutdown (Out of Memory)
+
+**Cause**: Application exceeded its allocated RAM limit.
+**Solution**:
+- Check your code for memory leaks (uncleared arrays or buffers).
+- Optimize memory usage in your application.
+- If your workload requires higher RAM (such as multi-session WhatsApp bots or heavy game servers), perform an **Upgrade Plan** to a higher RAM tier.
+
+---
+
+### 2. Error `EADDRINUSE: address already in use`
+
+**Cause**: The requested port is still locked by a previous hanging process.
+**Solution**:
+- Click the **Kill** button on the Console tab, wait 5 seconds, and click **Start**.
+- Ensure your code dynamically binds using `process.env.SERVER_PORT || process.env.PORT`.
+
+---
+
+### 3. Server Crash Loop / Immediate Shutdown
+
+**Cause**: Missing dependencies or incorrect startup file names.
+**Solution**:
+- **Check Console Logs**: Look for red error messages (e.g. `Cannot find module 'dotenv'`).
+- **Check package.json**: Ensure all required packages are declared in `dependencies`.
+- **Check Startup Tab**: Verify that **Main File** matches your entry file (e.g. `index.js`).
+
+---
+
+### 4. Disk Full / Cannot Save Files
+
+**Cause**: Server disk space has reached 100% capacity.
+**Solution**:
+- Open the **Files** tab.
+- Delete obsolete log files or leftover `.zip` archives.

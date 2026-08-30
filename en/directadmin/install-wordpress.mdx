@@ -1,0 +1,71 @@
+---
+title: "How to Install WordPress on DirectAdmin"
+description: "Step-by-step guide to installing WordPress in 1-click using Softaculous Apps Installer on DirectAdmin"
+icon: "wordpress"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/qXCZ20gBjvo"
+  title="Tutorial Install WordPress on DirectAdmin"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+DirectAdmin on Aisbir Cloud features the **Softaculous Apps Installer** to deploy WordPress automatically in 1-click without needing to create databases or upload files manually.
+
+---
+
+### 1. Open WordPress via Softaculous
+
+1. Log in to your DirectAdmin control panel dashboard.
+2. Scroll to the **Softaculous Apps Installer** widget and click the **WordPress** icon.
+
+<Frame caption="Select WordPress under Softaculous Apps Installer">
+  ![Softaculous Apps Installer](https://id-cdn.aisbirnusantara.com/documentation/directadmin-softaculous-apps-installer.png)
+</Frame>
+
+---
+
+### 2. Configure WordPress Installation Settings
+
+Click the **Install Now** (or **Quick Install**) button and fill out the fields:
+
+<Frame caption="WordPress software setup and administrator configuration">
+  ![WordPress Setup Form](https://id-cdn.aisbirnusantara.com/documentation/directadmin-softaculous-wordpress-setup.png)
+</Frame>
+
+#### A. Software Setup
+- **Choose Protocol**: Select `https://` (ensure your SSL certificate is active).
+- **Choose Domain**: Select your target domain name.
+- **In Directory**: **DELETE** the default `wp` text and **LEAVE THIS FIELD EMPTY** so WordPress installs directly onto your root domain (`yourdomain.com`), rather than a subfolder (`yourdomain.com/wp`).
+
+#### B. Site Settings
+- **Site Name**: The title of your website or blog.
+- **Site Description**: Your website tagline or brief description.
+
+#### C. Admin Account
+- **Admin Username**: Create a secure administrator login username (avoid using generic `admin`).
+- **Admin Password**: Generate a strong password.
+- **Admin Email**: Enter your active email address for system alerts and password recoveries.
+
+---
+
+### 3. Complete Installation
+
+1. Scroll to the bottom of the form.
+2. Click the blue **Install** button.
+3. Softaculous will configure files and databases automatically (typically under 30 seconds).
+
+---
+
+## Done 🎉
+
+Once completed, you will receive your access links:
+- **Website URL**: `https://yourdomain.com`
+- **Administrative URL (WP-Admin)**: `https://yourdomain.com/wp-admin`
+
+You can now log in to your WordPress administrative dashboard and begin designing your site!

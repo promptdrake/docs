@@ -1,0 +1,73 @@
+---
+title: "Cara Membuat Database MySQL"
+description: "Panduan membuat database MySQL dan mengelolanya di phpMyAdmin pada hosting DirectAdmin"
+icon: "database"
+---
+
+Panduan ini menjelaskan cara membuat database MySQL baru di panel DirectAdmin dan cara menghubungkannya ke file konfigurasi website kamu.
+
+---
+
+### 1. Buka Menu Databases
+
+1. Masuk ke panel DirectAdmin hosting kamu.
+2. Pada menu **Account Manager**, klik ikon **Databases**.
+
+<Frame caption="Pilih menu Databases pada Account Manager">
+  ![Menu Databases](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-icons.png)
+</Frame>
+
+---
+
+### 2. Isi Formulir Pembuatan Database
+
+Pada bagian formulir **Create Database**:
+
+1. **Database Name**: Masukkan nama database yang kamu inginkan (misal: `tes`). Nama database lengkap kamu akan otomatis ditambahkan prefix (contoh: `testing574_tes`).
+2. **User name**: Masukkan nama user database (misal: `tes`).
+3. **Password**: Masukkan kata sandi database yang aman.
+4. Klik tombol biru **CREATE**.
+
+<Frame caption="Formulir Create Database di DirectAdmin">
+  ![Create Database DirectAdmin](https://id-cdn.aisbirnusantara.com/documentation/directadmin-create-database-page.png)
+</Frame>
+
+---
+
+### 3. Simpan Detail Kredensial Database
+
+Setelah tombol Create ditekan, akan muncul kotak notifikasi hijau **Database created**:
+
+<Frame caption="Informasi Kredensial Database yang Berhasil Dibuat">
+  ![Detail Database Created](https://id-cdn.aisbirnusantara.com/documentation/directadmin-database-created-details.png)
+</Frame>
+
+<Warning>
+**PENTING - Hostname Database**:
+Pada file `.env` atau konfigurasi website kamu (seperti WordPress, Laravel, atau script PHP lainnya), nilai host **WAJIB diisi `localhost`**, bukan nama domain atau alamat IP.
+</Warning>
+
+#### Contoh Konfigurasi di File `.env`:
+```ini
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=testing574_tes
+DB_USERNAME=testing574_tes
+DB_PASSWORD=password_database_kamu
+```
+
+---
+
+### 4. Buka Database di phpMyAdmin
+
+Untuk mengelola tabel, import file `.sql`, atau export database:
+
+1. Di halaman **Databases**, klik tombol biru **PHPMYADMIN** di pojok kanan atas.
+2. Sistem akan otomatis membuka phpMyAdmin dan kamu langsung login tanpa perlu mengetikkan username dan password lagi!
+
+---
+
+## Selesai 🎉
+
+Database MySQL kamu sekarang sudah aktif dan siap digunakan untuk website kamu.

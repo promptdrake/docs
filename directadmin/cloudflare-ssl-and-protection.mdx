@@ -1,0 +1,72 @@
+---
+title: "Cara Menghubungkan SSL & Proteksi Cloudflare"
+description: "Panduan menghubungkan domain DirectAdmin ke Cloudflare untuk proteksi DDoS, WAF, dan SSL HTTPS gratis"
+icon: "cloudflare"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/2C3dxb-RNQQ"
+  title="Tutorial SSL dan Proteksi Cloudflare di DirectAdmin"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+Menghubungkan website DirectAdmin kamu ke **Cloudflare** memberikan banyak keuntungan, seperti perlindungan anti-DDoS, Web Application Firewall (WAF), caching global (CDN), dan sertifikat SSL/TLS gratis.
+
+---
+
+### 1. Tambahkan Domain ke Akun Cloudflare
+
+1. Masuk ke [Cloudflare Dashboard](https://dash.cloudflare.com) dan klik **Add Site**.
+2. Masukkan nama domain kamu (contoh: `domainkamu.com`), lalu pilih paket **Free Plan**.
+3. Cloudflare akan memindai DNS record domain kamu secara otomatis.
+
+---
+
+### 2. Arahkan Nameserver Domain ke Cloudflare
+
+1. Salin 2 Nameserver yang diberikan oleh Cloudflare (misal: `alina.ns.cloudflare.com` & `kevin.ns.cloudflare.com`).
+2. Buka panel tempat kamu membeli domain (Registrar / Client Area) dan ubah Custom Nameserver domain kamu ke Nameserver Cloudflare tersebut.
+3. Tunggu proses propagasi DNS (biasanya 5–30 menit).
+
+---
+
+### 3. Konfigurasi DNS Records Website
+
+Pada menu **DNS -> Records** di Cloudflare, pastikan:
+
+- **Root Domain (`@`)**: Type `A`, Point to `IP Server DirectAdmin`, Proxy status: **Proxied (Awan Oranye)**.
+- **Subdomain (`www`)**: Type `A` atau `CNAME`, Point to `@` / `IP Server DirectAdmin`, Proxy status: **Proxied (Awan Oranye)**.
+
+---
+
+### 4. Konfigurasi Enkripsi SSL/TLS
+
+Buka menu **SSL/TLS -> Overview** di Cloudflare:
+
+1. **Encryption Mode**:
+   - Pilih mode **Full** (jika kamu sudah mengaktifkan SSL Let's Encrypt di DirectAdmin).
+   - Atau pilih mode **Flexible** (jika server asal belum memasang SSL sertifikat).
+2. Buka submenu **SSL/TLS -> Edge Certificates**:
+   - Aktifkan **Always Use HTTPS** (agar semua request otomatis dialihkan ke HTTPS).
+   - Aktifkan **Automatic HTTPS Rewrites**.
+
+---
+
+### 5. Mengaktifkan Fitur Keamanan & Proteksi DDoS
+
+Buka menu **Security** di Cloudflare untuk meningkatkan proteksi:
+
+- **Security Level**: Ubah ke **Medium** atau **High** untuk mencegah serangan bot.
+- **Bot Fight Mode**: Aktifkan fitur ini di menu **Security -> Bots** untuk memblokir automated scraper & bot berbahaya.
+- **Under Attack Mode**: Jika website kamu sedang mengalami serangan DDoS massal, aktifkan mode ini di menu Overview untuk menampilkan halaman verifikasi Cloudflare Turnstile kepada setiap pengunjung.
+
+---
+
+## Selesai 🎉
+
+Website kamu sekarang terlindungi oleh jaringan global Cloudflare dengan koneksi HTTPS yang aman dan cepat!

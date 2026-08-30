@@ -1,0 +1,49 @@
+---
+title: "Manajemen File (File Manager)"
+description: "Cara mengelola, mengedit, upload, dan ekstrak file ZIP di panel server kamu"
+icon: "folders"
+---
+
+Menu **Files** memungkinkan kamu mengedit script, upload file, dan mengekstrak file `.zip` langsung lewat browser tanpa perlu aplikasi tambahan.
+
+---
+
+### 1. Mengedit File (Contoh: File `.env` atau `config.json`)
+
+1. Buka menu **Files** di panel server kamu.
+2. Klik pada nama file yang ingin kamu edit (misalnya: `.env` atau `index.js`).
+3. Ubah isi kodenya sesuai kebutuhan.
+4. Klik tombol **Save Content** di pojok kanan bawah editor untuk menyimpan perubahan.
+5. Setelah selesai, buka menu **Console** lalu klik **Restart** agar server membaca perubahan file tersebut.
+
+---
+
+### 2. Membuat File atau Folder Baru
+
+- **Buat File Baru**: Klik tombol **New File** di pojok kanan atas, tulis isi filenya, ketik nama file di bagian bawah, lalu klik **Save Content**.
+- **Buat Folder Baru**: Klik tombol **Create Directory**, masukkan nama folder yang diinginkan, lalu klik **Create**.
+
+---
+
+### 3. Ekstrak File ZIP di Server (Unarchive)
+
+Jika kamu ingin mengupload project yang berisi banyak file:
+
+1. Kompres semua file di laptop/komputer kamu menjadi satu file `.zip` (tanpa folder `node_modules`).
+2. Upload file `.zip` tersebut ke menu **Files**.
+3. Klik tombol titik tiga (**⋮**) di sebelah kanan nama file `.zip`.
+4. Pilih opsi **Unarchive**. File kamu akan langsung terekstrak otomatis dalam hitungan detik.
+
+---
+
+### 4. Upload & Download File
+
+- **Upload**: Drag & drop file dari komputer langsung ke browser di halaman Files, atau klik tombol **Upload**.
+- **Download**: Klik ikon titik tiga (**⋮**) pada file yang kamu inginkan, lalu pilih **Download**.
+
+---
+
+## ⚠️ Hal Penting yang Perlu Diingat
+
+- **Jangan upload folder `node_modules`**: Upload folder ini hanya akan memakan waktu lama dan memperlambat server. Cukup upload `package.json`, server akan menginstall dependensi otomatis saat dinyalakan.
+- **Periksa sisa penyimpanan**: Pastikan disk server kamu tidak penuh (100%), karena file baru tidak akan bisa disimpan jika storage sudah penuh.

@@ -1,0 +1,48 @@
+---
+title: "Cara Mengubah Versi PHP"
+description: "Panduan mengganti versi PHP dan mengatur PHP settings pada hosting DirectAdmin"
+icon: "php"
+---
+
+DirectAdmin memungkinkan kamu mengubah versi PHP website kamu dengan mudah hanya dalam beberapa klik agar kompatibel dengan script atau framework yang kamu gunakan (seperti WordPress, Laravel, CodeIgniter, dll.).
+
+---
+
+### 1. Buka Menu PHP Settings
+
+Ada 2 cara cepat untuk membuka pengaturan PHP di DirectAdmin:
+
+- **Cara 1**: Pada menu **Account Manager**, klik ikon **PHP Settings**.
+- **Cara 2**: Pada widget **Your Account** di dashboard, klik ikon pensil (**✏️ PHP 8.1**) di samping informasi *PHP Version*.
+
+<Frame caption="Pilih PHP Settings pada menu Account Manager">
+  ![Menu Account Manager](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-icons.png)
+</Frame>
+
+---
+
+### 2. Pilih Versi PHP yang Diinginkan
+
+1. Pada kolom **PHP Version**, klik menu dropdown.
+2. Pilih versi PHP yang kamu butuhkan (misalnya: `PHP 8.1`, `PHP 8.2`, `PHP 8.3`, dll.).
+3. Klik tombol biru **UPDATE VERSION**.
+
+<Frame caption="Pilih versi PHP dan klik Update Version">
+  ![Halaman PHP Settings](https://id-cdn.aisbirnusantara.com/documentation/directadmin-php-settings-page.png)
+</Frame>
+
+---
+
+### 3. Mengatur Konfigurasi Tambahan (Add New Override)
+
+Jika website kamu memerlukan pengaturan PHP khusus:
+
+- **display_errors**: Ubah ke `On` jika kamu ingin menampilkan pesan error untuk debugging, atau `Off` untuk mode produksi.
+- **memory_limit** / **max_execution_time**: Tambahkan pengaturan override sesuai kebutuhan website kamu.
+- Klik tombol **Add** untuk menyimpan pengaturan baru.
+
+---
+
+## Selesai 🎉
+
+Versi PHP website kamu akan langsung berganti seketika tanpa perlu restart server!

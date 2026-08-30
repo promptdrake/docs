@@ -1,0 +1,49 @@
+---
+title: "File Manager"
+description: "How to manage, edit, upload, and extract ZIP archives directly in Pterodactyl"
+icon: "folders"
+---
+
+The **Files** menu allows you to manage files, edit configuration files, and extract ZIP archives directly in your browser without requiring external software.
+
+---
+
+### 1. Editing Files (e.g. `.env` or `config.json`)
+
+1. Open the **Files** tab on your server panel.
+2. Click on the file you want to edit (e.g. `.env` or `index.js`).
+3. Make your changes in the built-in web code editor.
+4. Click **Save Content** in the bottom-right corner.
+5. Head to the **Console** tab and click **Restart** to apply your changes.
+
+---
+
+### 2. Creating New Files or Folders
+
+- **Create a File**: Click **New File**, write or paste your code, enter the file name at the bottom, and click **Save Content**.
+- **Create a Directory**: Click **Create Directory**, type the folder name, and click **Create**.
+
+---
+
+### 3. Extracting ZIP Archives (Unarchive)
+
+To deploy multi-file projects quickly:
+
+1. Compress your project files into a single `.zip` file on your computer (exclude `node_modules`).
+2. Upload the `.zip` file in the **Files** menu.
+3. Click the three dots menu (**⋮**) next to the `.zip` file.
+4. Select **Unarchive**. The files will extract automatically in seconds.
+
+---
+
+### 4. Uploading & Downloading Files
+
+- **Upload**: Drag and drop files from your computer into the Files tab, or click the **Upload** button.
+- **Download**: Click the three dots menu (**⋮**) next to any file and click **Download**.
+
+---
+
+## ⚠️ Important Best Practices
+
+- **Never upload `node_modules`**: Uploading thousands of small files takes excessive time and may lead to OS architecture mismatches. Only upload `package.json`, and the server will install dependencies automatically upon startup.
+- **Check storage limits**: Ensure your disk usage is below 100%, as full disks prevent new files from being saved.

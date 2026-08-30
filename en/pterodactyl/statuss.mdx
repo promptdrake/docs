@@ -1,0 +1,46 @@
+---
+title: "Server Status"
+description: "Understanding server status indicators in the Pterodactyl control panel"
+icon: "align-justify"
+---
+
+## Server Status Overview
+
+This page explains the meaning of server status indicators shown on the dashboard.
+
+---
+
+## Installing
+
+The **Installing** status indicates that the server container environment is currently being provisioned by the system.
+
+This status occurs during:
+- Creating a new server instance
+- Reinstalling a server
+- Updating the Egg or runtime environment
+- Reallocating container resources
+
+### What you should do
+- Wait for the provisioning process to complete (normally 10 seconds to 2 minutes).
+- Do not repeatedly trigger restart or reinstall while the status is Installing.
+
+### If Installing takes longer than 5 minutes
+If the status remains Installing for more than 5 minutes, contact Aisbir Cloud support with your Server ID and username.
+
+---
+
+## Suspended
+
+The **Suspended** status means the server is temporarily deactivated.
+
+Common causes:
+- Overdue invoice or expired service subscription
+- Resource usage violation
+- Manual administrative suspension
+
+While suspended, the container is powered off and network access is blocked.
+
+### How to resolve Suspended status
+1. **Pay outstanding invoice**: Visit the billing portal to complete payment.
+2. **Renew service**: If the plan has expired, renew the package.
+3. **Contact Support**: If you believe this is an error, submit a support ticket with your Server ID and account email.

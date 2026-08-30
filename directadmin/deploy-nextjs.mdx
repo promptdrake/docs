@@ -1,0 +1,104 @@
+---
+title: "Cara Deploy Next.js di DirectAdmin"
+description: "Panduan lengkap mendeploy aplikasi Next.js menggunakan custom server.js di DirectAdmin"
+icon: "react"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/r7N87i_Hw0k"
+  title="Tutorial Deploy Next.js di DirectAdmin"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+Panduan ini menjelaskan cara mendeploy aplikasi **Next.js** (SSR / Production Build) di web hosting DirectAdmin Aisbir Cloud menggunakan custom runner `server.js`.
+
+---
+
+### 1. Buat File `server.js` di Root Proyek Kamu
+
+Di dalam direktori utama proyek Next.js kamu di komputer lokal, buat file bernama **`server.js`** dan masukkan kode berikut:
+
+```javascript server.js
+/* eslint-disable @typescript-eslint/no-require-imports */
+const { createServer } = require("http");
+const next = require("next");
+const { parse } = require("url");
+
+const port = process.env.PORT || 3000;
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
+
+app.prepare().then(() => {
+    createServer((req, res) => {
+        const parsedUrl = parse(req.url, true);
+        handle(req, res, parsedUrl);
+    }).listen(port, (err) => {
+        if (err) throw err;
+        console.log(`Serve At http://localhost:${port}`);
+    });
+});
+```
+
+---
+
+### 2. Build Proyek Next.js di Komputer Lokal
+
+Jalankan perintah build di terminal proyek Next.js kamu:
+
+```bash
+npm run build
+```
+
+Setelah proses build selesai, pastikan folder **`.next`** berhasil terbuat.
+
+---
+
+### 3. Kompres File Proyek Menjadi ZIP
+
+Pilih file dan folder berikut untuk dikompres menjadi file `.zip` (misal: `nextjs.zip`):
+
+- Folder `.next`
+- Folder `public` (jika ada aset gambar/font)
+- File `server.js`
+- File `package.json` & `package-lock.json`
+- File `.env` (jika ada variabel environment)
+
+<Warning>
+**JANGAN sertakan folder `node_modules`!** Dependensi akan diinstall secara bersih di server.
+</Warning>
+
+---
+
+### 4. Upload dan Ekstrak di File Manager DirectAdmin
+
+1. Masuk ke panel DirectAdmin dan buka **File Manager**.
+2. Masuk ke folder `domains` -> `[domainkamu]` -> **`public_html`**.
+3. Upload file `nextjs.zip` ke dalam folder `public_html`.
+4. Klik kanan file `.zip` tersebut dan pilih **Extract** untuk mengekstrak seluruh file ke dalam `public_html`.
+
+---
+
+### 5. Setup Node.js App di DirectAdmin
+
+1. Buka menu **Setup Node.js App** di panel DirectAdmin.
+2. Klik tombol **Create Application**:
+   - **Node.js Version**: Pilih versi Node.js yang sesuai (contoh: Node 18 atau Node 20).
+   - **Application Mode**: Pilih `Production`.
+   - **Application Root**: Masukkan path folder website kamu (contoh: `domains/domainkamu.com/public_html`).
+   - **Application URL**: Pilih domain kamu.
+   - **Application Startup File**: Masukkan **`server.js`**.
+3. Klik **Create**.
+4. Klik tombol **Run NPM Install** pada halaman konfigurasi Node.js App untuk menginstall seluruh paket dependensi.
+5. Klik **Restart** / **Start Application**.
+
+---
+
+## Selesai 🎉
+
+Aplikasi Next.js kamu sekarang sudah berhasil berjalan di DirectAdmin dan dapat diakses dengan performa optimal!

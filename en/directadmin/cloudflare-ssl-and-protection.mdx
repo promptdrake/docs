@@ -1,0 +1,72 @@
+---
+title: "How to Configure Cloudflare SSL & DDoS Protection"
+description: "Comprehensive guide to connecting DirectAdmin to Cloudflare for DDoS protection, WAF, and free SSL HTTPS encryption"
+icon: "cloudflare"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/2C3dxb-RNQQ"
+  title="Tutorial Cloudflare SSL and Protection on DirectAdmin"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+Connecting your DirectAdmin website to **Cloudflare** delivers powerful advantages including enterprise-grade DDoS mitigation, Web Application Firewall (WAF), global CDN caching, and automatic SSL/TLS encryption.
+
+---
+
+### 1. Add Domain to Cloudflare
+
+1. Log in to your [Cloudflare Dashboard](https://dash.cloudflare.com) and click **Add Site**.
+2. Enter your domain name (e.g. `yourdomain.com`) and select the **Free Plan**.
+3. Cloudflare will automatically scan your existing DNS records.
+
+---
+
+### 2. Point Domain Nameservers to Cloudflare
+
+1. Copy the 2 custom nameservers assigned by Cloudflare (e.g. `alina.ns.cloudflare.com` & `kevin.ns.cloudflare.com`).
+2. Log in to your domain registrar and update your domain's Custom Nameservers to the assigned Cloudflare nameservers.
+3. Wait for DNS propagation (typically 5–30 minutes).
+
+---
+
+### 3. Configure Website DNS Records
+
+Under **DNS -> Records** in Cloudflare, verify the following records:
+
+- **Root Domain (`@`)**: Type `A`, points to your `DirectAdmin Server IP`, Proxy status: **Proxied (Orange Cloud)**.
+- **Subdomain (`www`)**: Type `A` or `CNAME`, points to `@` / `DirectAdmin Server IP`, Proxy status: **Proxied (Orange Cloud)**.
+
+---
+
+### 4. Configure SSL/TLS Encryption
+
+Navigate to **SSL/TLS -> Overview** in Cloudflare:
+
+1. **Encryption Mode**:
+   - Select **Full** (if you have already installed a free Let's Encrypt SSL certificate in DirectAdmin).
+   - Alternatively, choose **Flexible** (if no origin SSL is configured yet).
+2. Under **SSL/TLS -> Edge Certificates**:
+   - Enable **Always Use HTTPS** (automatically redirects all HTTP requests to HTTPS).
+   - Enable **Automatic HTTPS Rewrites**.
+
+---
+
+### 5. Enable Security & DDoS Protection Features
+
+Navigate to the **Security** tab in Cloudflare:
+
+- **Security Level**: Set to **Medium** or **High** to mitigate malicious traffic.
+- **Bot Fight Mode**: Enable under **Security -> Bots** to block automated scrapers and malicious crawler bots.
+- **Under Attack Mode**: If your site experiences an active DDoS assault, toggle this mode on the Overview page to present a security challenge to incoming visitors.
+
+---
+
+## Done 🎉
+
+Your website is now shielded by Cloudflare's global infrastructure with fast and secure HTTPS connectivity!

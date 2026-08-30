@@ -1,0 +1,39 @@
+---
+title: "How to Create Schedules & Cronjobs"
+description: "Guide to automating tasks and server restarts using the Pterodactyl Schedule manager"
+icon: "timer"
+---
+
+---
+
+### 1. Navigate to Schedules
+
+In your server dashboard:
+- Open the **Schedules** menu.
+- Click **New Schedule**.
+
+<Frame caption="New Schedule button">
+  ![New Schedule](https://id-cdn.aisbirnusantara.com/documentation/Screenshot%202026-03-28%20064747.png)
+</Frame>
+
+---
+
+### 2. Configure Cron Expression
+
+Configure the schedule settings:
+- **Schedule Name**: Name identifier (e.g. `Daily Auto Restart`).
+- **Minute / Hour / Day of Month / Month / Day of Week**: Standard cron parameters (e.g. `0 4 * * *` for daily 04:00 AM restart).
+- **Tasks**: Add actions such as:
+  - `Power Action` → Restart / Stop / Start server
+  - `Send Command` → Execute console commands
+
+<Frame caption="Cron schedule configuration">
+  ![Create Cron](https://id-cdn.aisbirnusantara.com/documentation/Screenshot%202026-03-28%20064853.png)
+</Frame>
+
+---
+
+## Best Practices 💡
+
+- Use schedules for daily automatic restarts to keep memory utilization optimized.
+- Avoid setting cron intervals too short (e.g. every minute) to prevent unnecessary server strain.

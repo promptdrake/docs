@@ -1,0 +1,73 @@
+---
+title: "How to Create a MySQL Database"
+description: "Guide to creating a MySQL database and managing it via phpMyAdmin in DirectAdmin"
+icon: "database"
+---
+
+This guide explains how to create a new MySQL database in DirectAdmin and connect it to your website configuration file.
+
+---
+
+### 1. Open the Databases Menu
+
+1. Log in to your DirectAdmin hosting panel.
+2. Under the **Account Manager** menu, click the **Databases** icon.
+
+<Frame caption="Select Databases under Account Manager">
+  ![Databases Menu](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-icons.png)
+</Frame>
+
+---
+
+### 2. Fill Out the Create Database Form
+
+Under the **Create Database** section:
+
+1. **Database Name**: Enter your preferred database suffix (e.g. `tes`). Your full database name will automatically include your account prefix (e.g. `testing574_tes`).
+2. **User name**: Enter the database username suffix (e.g. `tes`).
+3. **Password**: Enter a secure password for the database user.
+4. Click the blue **CREATE** button.
+
+<Frame caption="DirectAdmin Create Database form">
+  ![Create Database Form](https://id-cdn.aisbirnusantara.com/documentation/directadmin-create-database-page.png)
+</Frame>
+
+---
+
+### 3. Save Connection Credentials
+
+Once created, a green success banner titled **Database created** will appear:
+
+<Frame caption="Database connection details">
+  ![Database Created Details](https://id-cdn.aisbirnusantara.com/documentation/directadmin-database-created-details.png)
+</Frame>
+
+<Warning>
+**CRITICAL - Database Hostname**:
+In your application or `.env` configuration file (such as WordPress, Laravel, or custom PHP scripts), the database host **MUST be set to `localhost`**, not a domain name or IP address.
+</Warning>
+
+#### Example Configuration in `.env`:
+```ini
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=testing574_tes
+DB_USERNAME=testing574_tes
+DB_PASSWORD=your_database_password
+```
+
+---
+
+### 4. Open & Manage Database in phpMyAdmin
+
+To manage tables, run queries, or import/export `.sql` dumps:
+
+1. On the **Databases** page, click the blue **PHPMYADMIN** button in the upper-right corner.
+2. You will be automatically authenticated (*Single Sign-On*) into phpMyAdmin without needing to re-enter credentials!
+
+---
+
+## Done 🎉
+
+Your MySQL database is now created and ready for your website or web application.

@@ -1,0 +1,51 @@
+---
+title: "Cara Memasang SSL Gratis (Let's Encrypt)"
+description: "Panduan menerbitkan sertifikat SSL HTTPS otomatis menggunakan ACME Provider di DirectAdmin"
+icon: "shield-check"
+---
+
+Sertifikat SSL (HTTPS) sangat penting untuk mengamankan komunikasi data antara pengunjung dan website kamu, serta meningkatkan peringkat SEO di Google. Di DirectAdmin Aisbir Cloud, kamu bisa mendapatkan sertifikat SSL Let's Encrypt secara gratis dan otomatis.
+
+---
+
+### 1. Buka Menu SSL Certificates
+
+1. Masuk ke panel DirectAdmin hosting kamu.
+2. Pada menu **Account Manager**, klik ikon **SSL Certificates**.
+
+<Frame caption="Pilih SSL Certificates pada menu Account Manager">
+  ![Menu SSL Certificates](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-ssl-icon.png)
+</Frame>
+
+---
+
+### 2. Pilih Tab "Get automatic certificate from ACME Provider"
+
+1. Di halaman SSL Certificates, klik opsi tab **Get automatic certificate from ACME Provider**.
+
+<Frame caption="Pilih opsi Get automatic certificate from ACME Provider">
+  ![Manage Certificates](https://id-cdn.aisbirnusantara.com/documentation/directadmin-ssl-certificates-manage.png)
+</Frame>
+
+---
+
+### 3. Konfigurasi dan Simpan (SAVE)
+
+1. **ACME Provider**: Pastikan terpilih **Let's Encrypt**.
+2. **Common Name**: Nama domain utama kamu (misal: `domainkamu.com`).
+3. **Certificate Entries**: Pastikan mencentang domain utama dan subdomain www (misalnya `domainkamu.com` dan `www.domainkamu.com`).
+4. Klik tombol hijau **SAVE** di pojok kanan bawah.
+
+<Frame caption="Konfigurasi Let's Encrypt ACME Provider dan klik SAVE">
+  ![Konfigurasi ACME Provider](https://id-cdn.aisbirnusantara.com/documentation/directadmin-ssl-acme-letsencrypt-save.png)
+</Frame>
+
+---
+
+### 4. Proses Penerbitan Selesai
+
+Sistem DirectAdmin akan memvalidasi domain kamu dan memasang sertifikat SSL secara otomatis. 
+
+<Tip>
+Sertifikat SSL Let's Encrypt ini akan **diperpanjang secara otomatis (auto-renewal)** setiap 60-90 hari, sehingga website kamu akan selalu berstatus aman (*HTTPS*) tanpa perlu setting ulang!
+</Tip>

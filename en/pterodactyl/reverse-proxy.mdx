@@ -1,0 +1,113 @@
+---
+title: "How to Add Reverse Proxy"
+description: "Comprehensive guide to linking custom domains or free subdomains to your Pterodactyl server"
+icon: "globe"
+---
+
+The **Reverse Proxy** feature allows you to connect your own domain or create free subdomains so that your web apps, APIs, or bots can be accessed via standard HTTP/HTTPS ports (80 & 443) with active SSL certificates.
+
+---
+
+### 1. Mandatory: Set Cloudflare SSL/TLS to "Flexible"
+
+When connecting your **Own Domain**, ensure your domain is registered on Cloudflare and its encryption mode is set to **Flexible**:
+
+1. Open your [Cloudflare Dashboard](https://dash.cloudflare.com) and select your domain.
+2. In the left navigation, go to **SSL/TLS** -> **Overview**.
+3. Select **Flexible**.
+
+<Frame caption="Cloudflare SSL/TLS Encryption Mode must be set to Flexible">
+  ![Cloudflare Flexible SSL](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-cloudflare-flexible-ssl.png)
+</Frame>
+
+<Warning>
+**Flexible mode is required!** Setting encryption to *Full* or *Strict* will cause **521 Web Server Is Down** or **525 SSL Handshake Failed** errors.
+</Warning>
+
+---
+
+### 2. Navigate to Server Subscription & Domains Tab
+
+1. Log in to the [Aisbir Cloud Portal](https://portal.aisbirnusantara.com).
+2. In the left sidebar, click **Services** -> **Server Subscription**.
+3. Click the **Domains** tab next to the Servers tab.
+4. Click the green **Add Domain** button.
+
+<Frame caption="Server Subscription - Domains Tab">
+  ![Domains Tab](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-domains-tab.png)
+</Frame>
+
+---
+
+### 3. Choose Domain Setup Type
+
+A popup modal will offer two choices:
+
+- **Create Subdomain**: Get a free subdomain under our managed domain (e.g. `*.lezats.net`).
+- **Use Own Domain**: Point your own domain managed by Cloudflare to your server.
+
+<Frame caption="Add Domain Setup Options">
+  ![Add Domain Modal](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-add-domain-modal.png)
+</Frame>
+
+---
+
+### Option A: Create Free Subdomain (Create Subdomain)
+
+If you want a free subdomain instantly without purchasing a domain:
+
+1. Click **Create Subdomain**.
+2. **Select Your Server**: Select your target Pterodactyl server.
+3. Enter your desired subdomain prefix (e.g. `play`, `api`, or `web`).
+4. **Domain Extension**: Choose an available domain extension (e.g. `lezats.net`).
+5. Click the green **Create Subdomain** button.
+
+<Frame caption="Create Subdomain Form">
+  ![Create Subdomain](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-create-subdomain.png)
+</Frame>
+
+Your subdomain will become active immediately with automated SSL protection!
+
+---
+
+### Option B: Use Your Own Domain (Use Own Domain)
+
+If you own a custom domain (e.g. `yourdomain.com` or `app.yourdomain.com`):
+
+1. Click **Use Own Domain**.
+2. **Select Your Server**: Choose your Pterodactyl server.
+3. **Your Domain**: Enter your domain or subdomain.
+4. Click the blue **Generate DNS Records** button.
+
+<Frame caption="Use Own Domain Form">
+  ![Use Own Domain](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-use-own-domain.png)
+</Frame>
+
+---
+
+### 4. Add DNS Records in Cloudflare
+
+After generating records, the system displays two DNS records to configure:
+
+<Frame caption="DNS records to configure in Cloudflare">
+  ![DNS Records Result](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-dns-records.png)
+</Frame>
+
+In your Cloudflare dashboard under **DNS** -> **Records**, add:
+
+1. **A Record**:
+   - **Type**: `A`
+   - **Name**: `@` (or subdomain prefix)
+   - **IPv4 address**: Server IP shown on the portal (e.g. `172.93.185.195`)
+   - **Proxy status**: **Proxied** (Orange Cloud ☁️ Enabled)
+
+2. **TXT Record**:
+   - **Type**: `TXT`
+   - **Name**: `@` (or subdomain prefix)
+   - **Content**: Configuration string (e.g. `"origin=172.93.185.195 port=pterodactyl"`)
+
+---
+
+## Done 🎉
+
+Once DNS propagates, your domain is live and securely routed to your Pterodactyl server with SSL encryption!

@@ -1,0 +1,81 @@
+---
+title: "How to Upload Website Scripts"
+description: "Guide to uploading website files, scripts, and extracting ZIP archives in DirectAdmin File Manager"
+icon: "cloud-arrow-up"
+---
+
+This guide explains how to upload your website source code or scripts (such as PHP, HTML, WordPress, Laravel, etc.) to the `public_html` root directory on DirectAdmin hosting.
+
+---
+
+### 1. Open File Manager
+
+1. Log in to your DirectAdmin control panel.
+2. Under the **System Info & Files** section on the dashboard, click the **File Manager** icon.
+
+<Frame caption="Select File Manager under System Info & Files">
+  ![File Manager Menu](https://id-cdn.aisbirnusantara.com/documentation/directadmin-system-info-filemanager.png)
+</Frame>
+
+---
+
+### 2. Navigate to `domains` and Select Your Domain
+
+1. In the File Manager directory tree, open the **domains** folder.
+2. Click on your website domain name (e.g. `testing.lezats.net` or `yourdomain.com`).
+
+<Frame caption="Open domains folder and choose your domain">
+  ![Domains Directory](https://id-cdn.aisbirnusantara.com/documentation/directadmin-filemanager-domains-list.png)
+</Frame>
+
+---
+
+### 3. Open the `public_html` Folder
+
+Inside your domain directory, click on the **`public_html`** folder.
+
+<Frame caption="The public_html folder is your website's document root">
+  ![public_html Folder](https://id-cdn.aisbirnusantara.com/documentation/directadmin-filemanager-public-html-folder.png)
+</Frame>
+
+<Note>
+**The `public_html` folder** is the primary *document root* where the web server serves your website files to internet visitors.
+</Note>
+
+---
+
+### 4. Upload Script Archive (.ZIP)
+
+For websites with multiple files, we recommend compressing them into a single `.zip` file on your computer first:
+
+1. Inside `public_html`, click the **Upload** button in the top menu bar.
+2. Drag and drop your `.zip` file from your local computer into the upload modal, then wait for the upload progress to finish.
+
+---
+
+### 5. Extract the ZIP File on the Server
+
+1. Locate the uploaded `.zip` file inside the `public_html` directory.
+2. Right-click the `.zip` file or check its box, then select **Extract** (or **Archive** -> **Extract**).
+3. Confirm extraction to `/domains/[yourdomain]/public_html`.
+4. Your website files will extract immediately!
+
+<Frame caption="Website files extracted inside the public_html directory">
+  ![public_html Directory Contents](https://id-cdn.aisbirnusantara.com/documentation/directadmin-filemanager-public-html-contents.png)
+</Frame>
+
+---
+
+### 6. Edit Configuration Files (e.g. `.env` or `config.php`)
+
+If you need to update database credentials or environment variables:
+
+1. Click on the configuration file (e.g. `.env`, `config.php`, or `.htaccess`).
+2. Click the **Edit** button in the top menu.
+3. Update the values (make sure `DB_HOST=localhost`), then click **Save** in the bottom-right corner.
+
+---
+
+## Done 🎉
+
+Your website scripts are now uploaded and live on your DirectAdmin hosting!

@@ -1,0 +1,83 @@
+---
+title: "How to Setup DirectAdmin Email with Cloudflare"
+description: "Step-by-step guide to configuring DirectAdmin email services using Cloudflare DNS, MX, and SPF records"
+icon: "envelope"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/-0eKgMagfUY"
+  title="Tutorial Setup DirectAdmin Email to Cloudflare"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+If your domain uses **Cloudflare** for DNS management, you must configure specific email DNS records in Cloudflare so that your DirectAdmin custom email addresses (`user@yourdomain.com`) can send and receive emails properly.
+
+---
+
+### 1. Find Email DNS Records in DirectAdmin
+
+1. Log in to your DirectAdmin control panel.
+2. Under the **Account Manager** menu, click **DNS Management**.
+
+<Frame caption="Select DNS Management under Account Manager">
+  ![DNS Management Menu](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-dns-icon.png)
+</Frame>
+
+Note your server IP address, MX record value, and SPF TXT record:
+
+<Frame caption="DNS Management Records Table in DirectAdmin">
+  ![DNS Management Table](https://id-cdn.aisbirnusantara.com/documentation/directadmin-dns-management-records-table.png)
+</Frame>
+
+---
+
+### 2. Add DNS Records in Cloudflare Dashboard
+
+Open your [Cloudflare Dashboard](https://dash.cloudflare.com) -> select your domain -> navigate to **DNS** -> **Records**, then add the following records:
+
+#### A. A Record for Mail Subdomain
+- **Type**: `A`
+- **Name**: `mail`
+- **IPv4 Address**: Enter your DirectAdmin server IP (e.g. `82.25.62.14`).
+- **Proxy status**: **DNS Only (Grey Cloud / Unproxied)**
+
+<Warning>
+**CRITICAL - Set Proxy Status to DNS Only**:
+The `mail` hostname **MUST NOT** be proxied by Cloudflare (no orange cloud). Cloudflare proxies HTTP/HTTPS traffic only, while mail protocols (SMTP, IMAP, POP3) require a direct connection.
+</Warning>
+
+#### B. MX Record (Mail Exchanger)
+- **Type**: `MX`
+- **Name**: `@`
+- **Mail server**: `mail.yourdomain.com`
+- **Priority**: `10`
+- **TTL**: `Auto`
+
+#### C. TXT Record (SPF - Anti-Spam / Authentication)
+- **Type**: `TXT`
+- **Name**: `@`
+- **Content**: `"v=spf1 a mx ip4:82.25.62.14 ~all"` (replace with your server IP from DirectAdmin DNS Management).
+- **TTL**: `Auto`
+
+---
+
+### 3. Email Client Connection Settings (Webmail / Outlook / Gmail)
+
+Once DNS propagates:
+
+- **Webmail URL**: `https://yourdomain.com/roundcube` or `https://webmail.yourdomain.com`
+- **Incoming Mail Server (IMAP/POP3)**: `mail.yourdomain.com` (Port 993 SSL / Port 995 SSL)
+- **Outgoing Mail Server (SMTP)**: `mail.yourdomain.com` (Port 465 SSL / Port 587 STARTTLS)
+- **Username**: Full email address (e.g. `info@yourdomain.com`)
+- **Password**: Password created under DirectAdmin *E-mail Accounts*.
+
+---
+
+## Done 🎉
+
+Your business domain emails are now integrated with Cloudflare and ready for communication!

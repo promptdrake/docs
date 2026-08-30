@@ -1,0 +1,71 @@
+---
+title: "Cara Install WordPress di DirectAdmin"
+description: "Panduan instalasi WordPress otomatis menggunakan Softaculous Apps Installer di DirectAdmin"
+icon: "wordpress"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/qXCZ20gBjvo"
+  title="Tutorial Install WordPress di DirectAdmin"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+DirectAdmin di Aisbir Cloud menyediakan **Softaculous Apps Installer** untuk menginstall CMS WordPress secara instan dalam 1-klik tanpa perlu membuat database atau mengunggah file WordPress secara manual.
+
+---
+
+### 1. Buka Menu WordPress di Softaculous
+
+1. Masuk ke dashboard panel DirectAdmin hosting kamu.
+2. Scroll ke bagian widget **Softaculous Apps Installer**, lalu klik ikon **WordPress**.
+
+<Frame caption="Pilih WordPress pada widget Softaculous Apps Installer">
+  ![Softaculous Apps Installer](https://id-cdn.aisbirnusantara.com/documentation/directadmin-softaculous-apps-installer.png)
+</Frame>
+
+---
+
+### 2. Isi Formulir Instalasi WordPress
+
+Klik tombol **Install Now** (atau **Quick Install**) dan sesuaikan parameter berikut:
+
+<Frame caption="Formulir Software Setup dan Admin Account WordPress">
+  ![Formulir WordPress Setup](https://id-cdn.aisbirnusantara.com/documentation/directadmin-softaculous-wordpress-setup.png)
+</Frame>
+
+#### A. Software Setup
+- **Choose Protocol**: Pilih `https://` (pastikan SSL sudah aktif).
+- **Choose Domain**: Pilih nama domain yang ingin kamu install WordPress.
+- **In Directory**: **HAPUS** teks `wp` dan **KOSONGKAN kolom ini** agar WordPress terinstall di root domain utama (`domainkamu.com`), bukan di subfolder (`domainkamu.com/wp`).
+
+#### B. Site Settings
+- **Site Name**: Nama website atau judul blog kamu.
+- **Site Description**: Slogan atau deskripsi singkat website kamu.
+
+#### C. Admin Account
+- **Admin Username**: Masukkan username untuk login ke dashboard WP-Admin (jangan gunakan nama default `admin` demi keamanan).
+- **Admin Password**: Buat kata sandi yang kuat dan aman.
+- **Admin Email**: Masukkan email aktif kamu untuk menerima notifikasi website dan reset password.
+
+---
+
+### 3. Mulai Instalasi
+
+1. Scroll ke bagian paling bawah halaman.
+2. Klik tombol biru **Install**.
+3. Tunggu proses instalasi berjalan (biasanya hanya memakan waktu 10–30 detik).
+
+---
+
+## Selesai 🎉
+
+Setelah instalasi selesai, kamu akan diberikan URL:
+- **Website URL**: `https://domainkamu.com`
+- **Administrative URL (WP-Admin)**: `https://domainkamu.com/wp-admin`
+
+Kamu dapat langsung login ke dashboard admin WordPress dan mulai membangun website impian kamu!

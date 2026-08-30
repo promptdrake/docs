@@ -1,0 +1,51 @@
+---
+title: "How to Install Free SSL (Let's Encrypt)"
+description: "Guide to issuing free automatic SSL HTTPS certificates using ACME Provider in DirectAdmin"
+icon: "shield-check"
+---
+
+An SSL (HTTPS) certificate is essential for securing data transmissions between visitors and your website while improving Google search rankings. DirectAdmin on Aisbir Cloud allows you to obtain and automate free Let's Encrypt SSL certificates effortlessly.
+
+---
+
+### 1. Open the SSL Certificates Menu
+
+1. Log in to your DirectAdmin control panel.
+2. Under the **Account Manager** section, click the **SSL Certificates** icon.
+
+<Frame caption="Select SSL Certificates under Account Manager">
+  ![SSL Certificates Menu](https://id-cdn.aisbirnusantara.com/documentation/directadmin-account-manager-ssl-icon.png)
+</Frame>
+
+---
+
+### 2. Select "Get automatic certificate from ACME Provider"
+
+1. On the SSL Certificates page, click the tab option **Get automatic certificate from ACME Provider**.
+
+<Frame caption="Choose Get automatic certificate from ACME Provider">
+  ![Manage Certificates](https://id-cdn.aisbirnusantara.com/documentation/directadmin-ssl-certificates-manage.png)
+</Frame>
+
+---
+
+### 3. Configure & Click SAVE
+
+1. **ACME Provider**: Ensure **Let's Encrypt** is selected.
+2. **Common Name**: Your primary domain name (e.g. `yourdomain.com`).
+3. **Certificate Entries**: Ensure the root domain and `www` entries are checked (e.g. `yourdomain.com` and `www.yourdomain.com`).
+4. Click the green **SAVE** button in the lower-right corner.
+
+<Frame caption="Configure ACME Provider settings and click SAVE">
+  ![ACME Provider Configuration](https://id-cdn.aisbirnusantara.com/documentation/directadmin-ssl-acme-letsencrypt-save.png)
+</Frame>
+
+---
+
+### 4. Automatic Issuance Complete
+
+DirectAdmin will instantly communicate with Let's Encrypt, validate your domain, and install the SSL certificate.
+
+<Tip>
+Your Let's Encrypt SSL certificate will **auto-renew automatically** every 60-90 days, ensuring uninterrupted HTTPS security!
+</Tip>

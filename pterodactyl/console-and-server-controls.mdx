@@ -1,0 +1,53 @@
+---
+title: "Console & Kontrol Server"
+description: "Cara mengontrol server dan melihat log console secara langsung di panel Pterodactyl"
+icon: "terminal"
+---
+
+Menu **Console** adalah halaman utama untuk menyalakan server, mematikan server, dan memantau script atau bot kamu yang sedang berjalan secara live.
+
+---
+
+## 1. Tombol Kontrol Daya Server
+
+Di pojok kanan atas halaman Console, ada 4 tombol kontrol:
+
+- **Start**: Menyalakan server saat kondisi mati (offline).
+- **Restart**: Memulai ulang server. Bagus digunakan setelah kamu selesai mengubah file konfigurasi atau `.env`.
+- **Stop**: Mematikan server secara aman (*graceful stop*).
+- **Kill**: Mematikan server secara paksa seketika. Gunakan tombol ini **hanya jika** server kamu macet / freeze dan tidak bisa dimatikan dengan tombol Stop biasa.
+
+<Warning>
+Jangan sering-sering menekan tombol **Kill** jika server sedang menulis file atau database, karena bisa membuat data kamu rusak (*corrupt*).
+</Warning>
+
+---
+
+## 2. Membaca Status Server
+
+Kamu bisa melihat status server kamu di bagian atas:
+
+- **Offline**: Server sedang mati.
+- **Starting**: Server sedang loading dan menjalankan script startup.
+- **Running**: Server aktif dan aplikasi kamu berjalan normal.
+- **Stopping**: Server sedang dalam proses shutdown.
+
+---
+
+## 3. Memantau Resource (CPU & RAM)
+
+Di atas layar terminal, kamu bisa melihat:
+- **CPU**: Beban prosesor yang sedang terpakai.
+- **Memory (RAM)**: Pemakaian RAM server kamu. Pastikan tidak menyentuh 100% agar server tidak mendadak mati (*Out of Memory*).
+- **Disk**: Kapasitas penyimpanan SSD yang sudah digunakan oleh file server kamu.
+- **Network**: Kecepatan data upload dan download.
+
+---
+
+## 4. Mengirim Perintah ke Console
+
+Jika bot atau game server kamu menerima perintah teks:
+
+1. Klik pada bar input teks di bagian paling bawah layar terminal hitam.
+2. Ketik perintah yang kamu inginkan.
+3. Tekan **Enter** di keyboard untuk mengirimkan perintah tersebut.

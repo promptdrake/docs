@@ -1,60 +1,84 @@
 ---
-title: "Terms"
+title: "Syarat & Ketentuan (Terms of Service)"
+description: "Syarat, ketentuan layanan, dan Kebijakan Penggunaan Wajar (Fair Use Policy) di Aisbir Cloud Nusantara"
 icon: "brake-warning"
 ---
 
-# Terms
+Syarat dan Ketentuan ini mengatur penggunaan seluruh layanan yang disediakan oleh **Aisbir Cloud Nusantara**, termasuk Pterodactyl Panel, DirectAdmin Web Hosting, VPS, dan layanan terkait lainnya.
+
+---
 
 ## 1. Penerimaan Syarat
 
-Dengan mengakses atau menggunakan layanan **Aisbir Cloud Nusantara**, Anda setuju untuk terikat dengan Syarat dan Ketentuan ini.
+Dengan mendaftar, membeli, atau menggunakan layanan **Aisbir Cloud Nusantara**, Anda menyatakan telah membaca, memahami, dan menyetujui untuk terikat oleh seluruh Syarat dan Ketentuan serta Kebijakan Penggunaan Wajar (*Fair Use Policy*) ini.
 
 ---
 
-## 2. Penggunaan Layanan
+## 2. Kebijakan Penggunaan Wajar (Fair Use Policy - FUP)
 
-Anda setuju untuk menggunakan layanan hanya untuk tujuan yang sah dan sesuai dengan semua hukum dan peraturan yang berlaku.
+Seluruh layanan berbasis shared resource (sumber daya bersama) tunduk pada kebijakan penggunaan wajar untuk memastikan stabilitas dan performa optimal bagi seluruh pengguna di node server yang sama.
 
-Semua produk bersifat **No Refund**, termasuk deposit saldo yang tersedia, dan tidak dapat diuangkan kembali.
+### A. Pterodactyl Panel (Penggunaan RAM & CPU)
 
-Kecuali Kesalahan yang berasalkan dari aisbir cloud nusantara dan akan di refund melalui credit di client area
+<Warning>
+**Batas Penggunaan RAM & CPU**:
+Jika Anda membeli paket server dengan alokasi tertentu (misalnya **4 GB RAM**), Anda **TIDAK DIPERBOLEHKAN** menggunakan 100% RAM secara terus-menerus setiap jam (*sustained max usage*) atau melakukan *continuous burst*.
+</Warning>
 
----
+- **RAM / Memori**: Alokasi RAM paket server Anda adalah batas maksimal (*peak limit/headroom*), bukan beban konstan 24/7. Menggunakan RAM mendekati 100% secara nonstop berisiko mengganggu kestabilan node dan server Anda akan otomatis dimatikan oleh sistem (*OOM Killed*).
+- **CPU Usage**: Penggunaan CPU rata-rata di atas **85% secara berkelanjutan selama 1 jam** akan dikenakan pembatasan otomatis (*CPU capping/throttling*). Jika penggunaan CPU terus-menerus tinggi dan membebani server bersama, layanan dapat disuspend.
+- **Disk I/O**: Penggunaan disk read/write harus dalam batas wajar. Script atau bot yang menyebabkan *IOWait* tinggi secara konstan pada storage NVMe bersama akan dibatasi kecepatannya.
 
-## 3. Akun dan Keamanan
+### B. DirectAdmin Web Hosting
 
-Setiap device hanya diperkenankan memiliki **1 akun** untuk mencegah penyalahgunaan layanan.
-
-Anda bertanggung jawab untuk menjaga kerahasiaan informasi akun Anda dan wajib segera memberi tahu kami jika terjadi:
-
-- Penggunaan tidak sah
-- Pelanggaran keamanan lainnya
-
----
-
-## 4. Penangguhan Akun
-
-Aisbir Cloud Nusantara berhak untuk menangguhkan atau menghentikan akun Anda jika terjadi pelanggaran terhadap syarat ini.
-
-Kami adalah penyedia layanan hosting yang berlandaskan hukum di Indonesia. Segala bentuk aktivitas ilegal akan ditindak tegas sesuai hukum yang berlaku di Indonesia.
+- **Penyimpanan (Storage Usage)**: Alokasi penyimpanan hosting **hanya diperuntukkan bagi file website resmi** (HTML, PHP, CSS, JS, database, dan gambar pendukung website). 
+  - **Dilarang keras**: Menggunakan hosting sebagai tempat penyimpanan backup eksternal, personal cloud/file-locker, koleksi media pribadi (video/musik), atau file sharing publik.
+- **Batas Pengiriman Email**: Pengiriman email dibatasi maksimal **200 email per hari per akun** untuk menjaga reputasi IP mail server dan mencegah indikasi spamming.
+- **CPU & Memory Hosting**: Setiap akun hosting memiliki batas cgroups CPU dan RAM. Penggunaan script yang memicu loop tak terbatas atau overload akan dibatasi otomatis oleh sistem.
 
 ---
 
-## 5. Kebijakan Penggunaan
+## 3. Kebijakan Refund & Pembayaran
 
-Kami melarang penggunaan layanan untuk aktivitas ilegal seperti:
-
-- Mining (crypto mining)
-- Gambling
-- Scam / penipuan
-- Aktivitas ilegal lainnya
+- **No Refund**: Semua produk, layanan, dan deposit saldo bersifat **No Refund** (tidak dapat diuangkan kembali) setelah transaksi berhasil diproses.
+- **Pengecualian**: Jika terjadi kesalahan teknis yang berasal langsung dari pihak infrastruktur Aisbir Cloud Nusantara, pengembalian dana akan diberikan dalam bentuk **Credit Balance** di client area.
 
 ---
 
-## 6. Perubahan Syarat
+## 4. Akun & Keamanan
 
-Kami dapat memperbarui Syarat dan Ketentuan ini kapan saja.
+- **Batasan Akun**: Setiap pengguna/perangkat hanya diperbolehkan memiliki **1 akun** untuk mencegah penyalahgunaan promo atau layanan.
+- **Tanggung Jawab Pengguna**: Anda bertanggung jawab penuh atas keamanan email, password, dan API Key akun Anda. Segera hubungi kami jika terjadi indikasi akses tidak sah.
 
-Dengan tetap menggunakan layanan kami, Anda dianggap menyetujui perubahan tersebut.
+---
 
-Jika Anda tidak setuju dengan ketentuan yang berlaku, silakan menggunakan layanan lain yang lebih sesuai. Kami akan menindak tegas setiap pelanggaran terhadap aturan yang telah ditetapkan.
+## 5. Aktivitas yang Dilarang Keras (Prohibited Content)
+
+Aisbir Cloud Nusantara tunduk pada hukum yang berlaku di Indonesia. Kami melarang keras penggunaan server untuk:
+
+<CardGroup cols={2}>
+  <Card title="Mining Cryptocurrency" icon="microchip" color="#ef4444">
+    Segala bentuk penambangan crypto (crypto mining) dilarang keras dan akan langsung disuspend permanen.
+  </Card>
+  <Card title="Gambling & Judi Online" icon="dice" color="#ef4444">
+    Hosting situs, bot, atau script terkait perjudian dan judi online dilarang tanpa toleransi.
+  </Card>
+  <Card title="Scam & Phishing" icon="shield-virus" color="#ef4444">
+    Pembuatan situs tiruan, malware, bot spam, atau penipuan digital.
+  </Card>
+  <Card title="DDoS & Network Abuse" icon="network-wired" color="#ef4444">
+    DDoS attack, network stresser, port scanning, atau torrent tracker/seeding.
+  </Card>
+</CardGroup>
+
+---
+
+## 6. Penangguhan & Pemutusan Layanan
+
+Aisbir Cloud Nusantara berhak menangguhkan (*suspend*) atau menghapus (*terminate*) layanan tanpa pemberitahuan sebelumnya jika ditemukan pelanggaran terhadap ketentuan di atas demi melindungi integritas server pelanggan lainnya.
+
+---
+
+## 7. Perubahan Ketentuan
+
+Kami dapat memperbarui Syarat & Ketentuan ini sewaktu-waktu. Perubahan akan berlaku segera setelah dipublikasikan pada halaman dokumentasi ini.

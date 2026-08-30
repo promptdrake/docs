@@ -36,10 +36,10 @@
     },
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Bahasa Indonesia",
         "groups": [
           {
-            "group": "Introduction",
+            "group": "Pengenalan",
             "pages": [
               "index",
               "terms",
@@ -50,14 +50,36 @@
             "group": "Pterodactyl Panel",
             "expanded": true,
             "pages": [
-              "pterodactyl/cara-membuat-cronjob",
-              "pterodactyl/upgrade-plan",
-              "pterodactyl/mengubah-environment-startup",
               "pterodactyl/environment",
+              "pterodactyl/console-and-server-controls",
               "pterodactyl/statuss",
+              "pterodactyl/file-manager",
               "pterodactyl/upload-folder",
               "pterodactyl/manage-database",
-              "pterodactyl/create-tunnel"
+              "pterodactyl/mengubah-environment-startup",
+              "pterodactyl/cara-membuat-cronjob",
+              "pterodactyl/network-allocation",
+              "pterodactyl/reverse-proxy",
+              "pterodactyl/deploy-nextjs",
+              "pterodactyl/subusers",
+              "pterodactyl/account-security-api",
+              "pterodactyl/troubleshooting",
+              "pterodactyl/upgrade-plan"
+            ]
+          },
+          {
+            "group": "DirectAdmin Hosting",
+            "expanded": true,
+            "pages": [
+              "directadmin/login",
+              "directadmin/install-ssl",
+              "directadmin/cloudflare-ssl-and-protection",
+              "directadmin/setup-email-cloudflare",
+              "directadmin/install-wordpress",
+              "directadmin/upload-script",
+              "directadmin/deploy-nextjs",
+              "directadmin/change-php-version",
+              "directadmin/create-mysql-database"
             ]
           },
           {
@@ -70,22 +92,63 @@
               "essentials/reusable-snippets"
             ],
             "hidden": true
+          }
+        ]
+      },
+      {
+        "tab": "English",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "en/index",
+              "en/terms",
+              "en/resseler-information"
+            ]
           },
           {
-            "group": "AI tools",
+            "group": "Pterodactyl Panel",
+            "expanded": true,
             "pages": [
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ],
-            "hidden": true
+              "en/pterodactyl/environment",
+              "en/pterodactyl/console-and-server-controls",
+              "en/pterodactyl/statuss",
+              "en/pterodactyl/file-manager",
+              "en/pterodactyl/upload-folder",
+              "en/pterodactyl/manage-database",
+              "en/pterodactyl/mengubah-environment-startup",
+              "en/pterodactyl/cara-membuat-cronjob",
+              "en/pterodactyl/network-allocation",
+              "en/pterodactyl/reverse-proxy",
+              "en/pterodactyl/deploy-nextjs",
+              "en/pterodactyl/subusers",
+              "en/pterodactyl/account-security-api",
+              "en/pterodactyl/troubleshooting",
+              "en/pterodactyl/upgrade-plan"
+            ]
+          },
+          {
+            "group": "DirectAdmin Hosting",
+            "expanded": true,
+            "pages": [
+              "en/directadmin/login",
+              "en/directadmin/install-ssl",
+              "en/directadmin/cloudflare-ssl-and-protection",
+              "en/directadmin/setup-email-cloudflare",
+              "en/directadmin/install-wordpress",
+              "en/directadmin/upload-script",
+              "en/directadmin/deploy-nextjs",
+              "en/directadmin/change-php-version",
+              "en/directadmin/create-mysql-database"
+            ]
           }
         ]
       }
     ]
   },
   "logo": {
-    "light": "/images/logos.svg",
-    "dark": "/images/logos.svg"
+    "light": "https://id-cdn.aisbirnusantara.com/documentation/logoneww.png",
+    "dark": "https://id-cdn.aisbirnusantara.com/documentation/logoneww.png"
   },
   "navbar": {
     "links": [

@@ -1,0 +1,45 @@
+---
+title: "Troubleshooting & Solusi Error Umum"
+description: "Solusi cepat untuk mengatasi error yang sering terjadi pada server Pterodactyl"
+icon: "wrench"
+---
+
+Jika server kamu mengalami kendala atau gagal menyala, berikut beberapa solusi cepat untuk masalah yang paling sering ditemui:
+
+---
+
+### 1. Error 137 / Server Mendadak Mati (Out of Memory)
+
+**Penyebab**: Aplikasi kamu menggunakan memori (RAM) melebihi batas paket server kamu.
+**Solusi**:
+- Cek apakah script kamu mengalami kebocoran memori (*memory leak*).
+- Jangan menyimpan terlalu banyak data di cache variabel.
+- Jika script kamu memang membutuhkan kapasitas lebih besar (misal bot WhatsApp banyak sesi atau game server), lakukan **Upgrade Plan** ke paket dengan RAM lebih tinggi.
+
+---
+
+### 2. Error `EADDRINUSE: address already in use`
+
+**Penyebab**: Nomor port yang ingin dipakai masih terkunci oleh proses sebelumnya yang belum tertutup sempurna.
+**Solusi**:
+- Klik tombol **Kill** di menu Console, tunggu 5 detik, lalu klik **Start** kembali.
+- Pastikan di script kamu tidak meng-hardcode port sembarangan. Gunakan `process.env.SERVER_PORT || process.env.PORT`.
+
+---
+
+### 3. Server Crash Loop / Mati Terus Menerus
+
+**Penyebab**: Biasanya karena file dependensi belum terinstall atau salah nama file startup.
+**Solusi**:
+- **Cek Console**: Lihat pesan error warna merah di Console sebelum server mati (misal: `Cannot find module 'dotenv'`).
+- **Cek package.json**: Pastikan semua library yang kamu gunakan sudah tercantum di file `package.json`.
+- **Cek Tab Startup**: Pastikan kolom **Main File** sudah sesuai dengan nama file utama kamu (contoh: `index.js`, bukan `server.js` jika nama filemu `index.js`).
+
+---
+
+### 4. Disk Full / Tidak Bisa Simpan File
+
+**Penyebab**: Ruang penyimpanan SSD server kamu sudah 100% penuh.
+**Solusi**:
+- Buka menu **Files**.
+- Hapus file log lama yang ukurannya besar atau file `.zip` bekas upload.

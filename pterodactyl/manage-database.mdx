@@ -1,50 +1,85 @@
 ---
-title: "Database"
+title: "Database & phpMyAdmin"
+description: "Panduan membuat database MySQL dan mengelolanya melalui phpMyAdmin di Aisbir Cloud"
 icon: "database"
 ---
 
+Di panduan ini, kamu akan mempelajari cara membuat database baru untuk server kamu dan cara membukanya di **phpMyAdmin**.
 
-## Membuat Database
+---
 
-Ikuti langkah-langkah berikut untuk membuat database baru:
+### 1. Buat Database Baru
 
-### 1. Klik Tombol New Database
-Klik tombol **New Database** pada dashboard.
+Masuk ke panel server kamu, buka tab **Databases**, lalu klik tombol **New Database**.
 
-<Frame>
-  ![New Database Button](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260328-054535.png)
+<Frame caption="Klik tombol New Database">
+  ![Tombol New Database](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260328-054535.png)
 </Frame>
 
 ---
 
-### 2. Masukkan Nama Database
-Isi nama database sesuai kebutuhan, lalu lanjutkan proses pembuatan.
+### 2. Isi Nama Database
 
-![Input Nama Database](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260326-072909.png)
+Akan muncul popup formulir:
+- **Database Name**: Masukkan nama database yang kamu inginkan (misal: `botdb` atau `main`).
+- **Connections From**: Biarkan `%` (kosongkan) agar database bisa diakses dari mana saja.
 
----
+Setelah itu, klik tombol biru **Create Database**.
 
-### 3. Lihat Detail Database
-Setelah database berhasil dibuat, Anda akan melihat detail database seperti:
-- Nama database
-- Username
-- Host
-- Link akses phpMyAdmin
-
-<Frame>
-  ![Detail Database](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260326-072909.png)
+<Frame caption="Formulir Create new database">
+  ![Formulir Database](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260326-072909.png)
 </Frame>
 
 ---
 
-### 4. Akses phpMyAdmin
-Gunakan URL phpMyAdmin yang tersedia pada detail database untuk membuka dan mengelola database Anda,.
-(Phpmyadmin tersedia pada opsi host cukup hapus :3306 pada domain, misal phpmyadmin.aisbirnusantara.com:3306 -> phpmyadmin.aisbirnusantara.com)
+### 3. Lihat Informasi Koneksi Database
 
-<Frame>
-  ![Akses phpMyAdmin](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260326-073131.png)
+Setelah database berhasil dibuat, klik ikon **Mata** atau detail database untuk melihat data login:
+
+- **Endpoint / Host**: `database.aisbirnusantara.com:3306`
+- **Username**: Username unik database kamu (contoh: `u865_nIRT8ij1si`)
+- **Password**: Kata sandi database kamu
+- **JDBC Connection String**: URL koneksi langsung
+
+<Frame caption="Detail Informasi Koneksi Database">
+  ![Detail Koneksi Database](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260326-073034.png)
+</Frame>
+
+<Tip>
+Jika kamu butuh mengganti password database, kamu bisa klik tombol **Rotate Password** di jendela ini kapan saja.
+</Tip>
+
+---
+
+### 4. Buka & Login ke phpMyAdmin
+
+Untuk mengelola tabel, import file `.sql`, atau export data:
+
+1. Buka browser dan kunjungi: [https://db.aisbirnusantara.com](https://db.aisbirnusantara.com)
+2. Masukkan **Nama Pengguna (Username)** yang kamu dapatkan dari detail database tadi.
+3. Masukkan **Kata Sandi (Password)** database kamu.
+4. Klik tombol **Masuk**.
+
+<Frame caption="Halaman Login phpMyAdmin Aisbir Cloud">
+  ![Login phpMyAdmin](https://id-cdn.aisbirnusantara.com/documentation/Screenshot_20260326-073131.png)
 </Frame>
 
 ---
 
-## Selesai
+## Tips Penggunaan di Script / Aplikasi
+
+Saat menghubungkan bot atau aplikasi kamu (Node.js, Python, atau PHP) ke database ini:
+
+```ini
+DB_HOST=database.aisbirnusantara.com
+DB_PORT=3306
+DB_USER=u865_nIRT8ij1si
+DB_PASS=password_kamu_disini
+DB_NAME=s865_namadbkamu
+```
+
+---
+
+## Selesai 🎉
+
+Sekarang database MySQL kamu sudah siap digunakan dan bisa dikelola dengan mudah melalui phpMyAdmin!

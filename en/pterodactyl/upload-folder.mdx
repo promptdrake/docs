@@ -1,0 +1,40 @@
+---
+title: "Upload via SFTP"
+description: "How to upload large folders to your server using an SFTP client"
+icon: "folder"
+---
+
+For uploading large directories or thousands of files, we recommend using an SFTP client such as **FileZilla**, **WinSCP**, or **Cyberduck**.
+
+---
+
+## Prerequisites
+
+- Active Pterodactyl server
+- SFTP client installed on your computer (FileZilla recommended)
+
+---
+
+## Connecting via SFTP
+
+<Steps>
+  <Step title="Retrieve SFTP Credentials">
+    In your server dashboard, find your connection details under **Settings** -> **SFTP Details**:
+    - **Host / IP**: Server node IP or hostname
+    - **Port**: Typically `2022`
+    - **Username**: Container username (e.g. `container123`)
+    - **Password**: Your Pterodactyl panel account password
+  </Step>
+  <Step title="Connect via FileZilla">
+    Open FileZilla, enter the Host, Username, Password, and Port (`2022`), then click **Quickconnect**.
+  </Step>
+  <Step title="Navigate to Container Directory">
+    Navigate to the root working directory: `/home/container`.
+  </Step>
+  <Step title="Upload Files">
+    Drag and drop files from your local computer into the remote container window.
+  </Step>
+  <Step title="Restart Server">
+    Once upload completes, return to the panel and click **Restart** on the Console page.
+  </Step>
+</Steps>

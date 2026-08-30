@@ -1,0 +1,81 @@
+---
+title: "Cara Upload Script Website"
+description: "Panduan mengunggah script, file HTML/PHP, dan mengekstrak file ZIP di File Manager DirectAdmin"
+icon: "cloud-arrow-up"
+---
+
+Panduan ini menjelaskan cara mengunggah source code atau script website kamu (seperti PHP, HTML, WordPress, Laravel, dll.) ke folder root `public_html` pada hosting DirectAdmin.
+
+---
+
+### 1. Buka Menu File Manager
+
+1. Masuk ke panel DirectAdmin hosting kamu.
+2. Pada dashboard, cari menu **System Info & Files**, lalu klik ikon **File Manager**.
+
+<Frame caption="Pilih File Manager pada menu System Info & Files">
+  ![Menu File Manager](https://id-cdn.aisbirnusantara.com/documentation/directadmin-system-info-filemanager.png)
+</Frame>
+
+---
+
+### 2. Buka Folder `domains` dan Pilih Domain Kamu
+
+1. Pada daftar folder di File Manager, klik folder **domains**.
+2. Klik nama domain website kamu (contoh: `testing.lezats.net` atau `domainkamu.com`).
+
+<Frame caption="Buka folder domains dan pilih nama domain kamu">
+  ![Folder Domains](https://id-cdn.aisbirnusantara.com/documentation/directadmin-filemanager-domains-list.png)
+</Frame>
+
+---
+
+### 3. Masuk ke Folder `public_html`
+
+Di dalam folder domain kamu, klik folder **`public_html`**.
+
+<Frame caption="Folder public_html adalah direktori utama website kamu">
+  ![Folder public_html](https://id-cdn.aisbirnusantara.com/documentation/directadmin-filemanager-public-html-folder.png)
+</Frame>
+
+<Note>
+**Folder `public_html`** adalah folder *document root* tempat web server membaca seluruh file website kamu agar bisa diakses oleh pengunjung dari internet.
+</Note>
+
+---
+
+### 4. Upload File Script (.ZIP)
+
+Untuk mengunggah script dengan banyak file, disarankan mengompresnya terlebih dahulu menjadi satu file `.zip` di komputer kamu:
+
+1. Di dalam folder `public_html`, klik tombol **Upload** di bilah menu bagian atas.
+2. Drag & drop file `.zip` dari komputer kamu ke jendela browser, lalu tunggu proses upload selesai.
+
+---
+
+### 5. Ekstrak File ZIP di Server (Extract)
+
+1. Cari file `.zip` yang baru saja kamu upload di folder `public_html`.
+2. Klik kanan pada file `.zip` tersebut atau centang kotak di sampingnya, lalu pilih **Extract** (atau **Archive** -> **Extract**).
+3. Konfirmasi ekstraksi file ke direktori `/domains/[domainkamu]/public_html`.
+4. Seluruh file website kamu akan langsung terekstrak secara instan!
+
+<Frame caption="Daftar file website yang sudah berada di dalam folder public_html">
+  ![Isi Folder public_html](https://id-cdn.aisbirnusantara.com/documentation/directadmin-filemanager-public-html-contents.png)
+</Frame>
+
+---
+
+### 6. Mengedit File Konfigurasi (Contoh: `.env` atau `config.php`)
+
+Jika kamu perlu menyesuaikan konfigurasi database atau environment:
+
+1. Klik pada file konfigurasi (misalnya `.env`, `config.php`, atau `.htaccess`).
+2. Klik tombol **Edit** di menu atas.
+3. Ubah isinya (misalnya set `DB_HOST=localhost`), lalu klik tombol **Save** di pojok kanan bawah.
+
+---
+
+## Selesai 🎉
+
+Script website kamu sudah berhasil diunggah ke hosting DirectAdmin dan website kamu sudah aktif bisa diakses melalui browser!

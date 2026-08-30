@@ -1,0 +1,114 @@
+---
+title: "Cara Deploy Next.js di Pterodactyl"
+description: "Panduan lengkap mendeploy aplikasi Next.js pada server Pterodactyl Aisbir Cloud"
+icon: "react"
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/gqYD7HiQr7g"
+  title="Tutorial Deploy Next.js di Pterodactyl"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ width: '100%', borderRadius: '0.5rem', marginBottom: '1.5rem' }}
+></iframe>
+
+Panduan ini menjelaskan cara mendeploy aplikasi **Next.js** di server Node.js Pterodactyl Panel Aisbir Cloud.
+
+---
+
+### 1. Sesuaikan Script `start` di `package.json` atau Gunakan `server.js`
+
+Agar Next.js mengikat (*bind*) port yang dialokasikan oleh panel Pterodactyl secara otomatis, pastikan script `start` di `package.json` kamu menggunakan variabel `$SERVER_PORT`:
+
+```json package.json
+{
+  "name": "my-nextjs-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${SERVER_PORT:-3000} -H 0.0.0.0"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  }
+}
+```
+
+*Atau* kamu juga bisa menggunakan file runner custom **`server.js`**:
+
+```javascript server.js
+/* eslint-disable @typescript-eslint/no-require-imports */
+const { createServer } = require("http");
+const next = require("next");
+const { parse } = require("url");
+
+const port = process.env.SERVER_PORT || process.env.PORT || 3000;
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
+
+app.prepare().then(() => {
+    createServer((req, res) => {
+        const parsedUrl = parse(req.url, true);
+        handle(req, res, parsedUrl);
+    }).listen(port, "0.0.0.0", (err) => {
+        if (err) throw err;
+        console.log(`Server Next.js aktif di http://0.0.0.0:${port}`);
+    });
+});
+```
+
+---
+
+### 2. Build Proyek di Komputer Lokal
+
+Jalankan perintah build sebelum mengupload ke server:
+
+```bash
+npm run build
+```
+
+---
+
+### 3. Kompres File Menjadi ZIP
+
+Pilih file-file berikut dan kompres menjadi file `.zip`:
+- Folder `.next`
+- Folder `public` (jika ada)
+- File `package.json` & `package-lock.json`
+- File `server.js` (jika menggunakan custom server)
+- File `.env` (jika ada)
+
+<Warning>
+**JANGAN mengunggah folder `node_modules`!** Server Pterodactyl akan menjalankan `npm install` secara otomatis saat server dinyalakan.
+</Warning>
+
+---
+
+### 4. Upload dan Ekstrak di File Manager Pterodactyl
+
+1. Masuk ke panel server Pterodactyl kamu, buka menu **Files**.
+2. Upload file `.zip` proyek kamu.
+3. Klik ikon titik tiga (**⋮**) pada file `.zip` lalu pilih **Unarchive** untuk mengekstrak seluruh file ke `/home/container`.
+
+---
+
+### 5. Konfigurasi Tab Startup & Nyalakan Server
+
+1. Buka tab **Startup** pada panel server kamu:
+   - **Main File / Startup File**: Pastikan nilainya `server.js` (jika menggunakan custom server) atau `index.js`.
+   - **Node Version**: Pilih versi Node.js yang sesuai (contoh: Node 18, Node 20, atau Node 22).
+2. Buka tab **Console**, lalu klik tombol hijau **Start**.
+3. Server Pterodactyl akan menginstall dependensi otomatis dan menyalakan aplikasi Next.js kamu!
+
+---
+
+## Menghubungkan Domain ke Next.js
+
+Jika kamu ingin aplikasi Next.js kamu bisa diakses melalui domain kustom tanpa mengetik nomor port, gunakan fitur **Reverse Proxy** (lihat panduan [Cara Menambah Reverse Proxy](/pterodactyl/reverse-proxy)).

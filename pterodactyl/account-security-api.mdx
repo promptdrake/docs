@@ -1,0 +1,39 @@
+---
+title: "Keamanan Akun & API Key"
+description: "Panduan mengaktifkan 2FA, ganti password, dan membuat API Key di panel Pterodactyl"
+icon: "shield-keyhole"
+---
+
+Untuk menjaga server kamu tetap aman dari akses orang lain, kamu bisa mengaktifkan verifikasi 2 langkah (2FA) dan mengelola akun di menu pengaturan.
+
+---
+
+### 1. Mengaktifkan 2FA (Two-Factor Authentication)
+
+1. Klik foto profil / username kamu di pojok kanan atas panel, lalu pilih **Account**.
+2. Di bagian **Two-Step Verification**, klik tombol **Enable 2FA** / **Configure**.
+3. Buka aplikasi authenticator di HP kamu (seperti **Google Authenticator** atau **Authy**), lalu scan QR code yang tampil.
+4. Masukkan kode 6 angka yang muncul di HP kamu dan masukkan password akun, lalu klik **Submit**.
+5. **Penting**: Simpan kode pemulihan (*recovery codes*) di tempat aman jika sewaktu-waktu HP kamu hilang.
+
+---
+
+### 2. Mengubah Password Akun
+
+1. Buka halaman **Account Settings**.
+2. Pada menu **Update Password**:
+   - Masukkan password kamu saat ini.
+   - Masukkan password baru yang kuat.
+   - Ulangi password baru.
+3. Klik tombol **Update Password**.
+
+---
+
+### 3. Membuat Client API Key (Otomatisasi)
+
+Jika kamu ingin mengontrol server lewat script luar atau bot Discord khusus:
+
+1. Di halaman **Account Settings**, klik tab **API Credentials**.
+2. Klik tombol **Create API Key**.
+3. Beri deskripsi (contoh: `Bot Monitoring`).
+4. Klik **Create**, lalu salin API Key yang muncul. Simpan kunci ini baik-baik karena hanya akan ditampilkan sekali saja.

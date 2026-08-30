@@ -1,0 +1,53 @@
+---
+title: "Console & Server Controls"
+description: "How to control server power, read real-time console logs, and execute commands in Pterodactyl"
+icon: "terminal"
+---
+
+The **Console** page is the main command center for starting, stopping, and monitoring your live scripts, bots, or game servers in real time.
+
+---
+
+## 1. Server Power Controls
+
+In the upper-right corner of the Console page, you will find 4 power buttons:
+
+- **Start**: Powers on the server from an offline state.
+- **Restart**: Safely restarts the server. Recommended after modifying configuration files or `.env` variables.
+- **Stop**: Initiates a graceful shutdown, giving your application time to save data and close database connections.
+- **Kill**: Instantly terminates the container process. Use this **only** if the server is frozen/hanging and the Stop button does not respond.
+
+<Warning>
+Avoid frequent use of the **Kill** button while your application is writing to files or databases, as sudden termination may cause data corruption.
+</Warning>
+
+---
+
+## 2. Server Status Indicators
+
+You can view the current status of your server in the header:
+
+- **Offline**: Server is powered down and consuming zero CPU/RAM.
+- **Starting**: Server is initializing the container and executing startup scripts.
+- **Running**: Server is active and operational.
+- **Stopping**: Server is gracefully shutting down.
+
+---
+
+## 3. Live Resource Monitoring
+
+Above the terminal console, real-time resource meters display:
+- **CPU**: Processing capacity currently used by your server.
+- **Memory (RAM)**: Current RAM usage against your package limit. Keep usage below 100% to avoid Out of Memory (OOM) crashes.
+- **Disk**: Storage space consumed by your server files.
+- **Network**: Real-time inbound (download) and outbound (upload) transfer rates.
+
+---
+
+## 4. Sending Console Commands
+
+To send commands directly to your application:
+
+1. Click on the command input bar at the bottom of the black terminal screen.
+2. Type your command.
+3. Press **Enter** on your keyboard to send.

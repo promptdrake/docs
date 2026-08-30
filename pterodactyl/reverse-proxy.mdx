@@ -1,0 +1,113 @@
+---
+title: "Cara Menambah Reverse Proxy"
+description: "Panduan lengkap menghubungkan domain sendiri atau subdomain gratis ke server Pterodactyl"
+icon: "globe"
+---
+
+Fitur **Reverse Proxy** memungkinkan kamu menghubungkan domain milikmu sendiri atau membuat subdomain gratis agar website, API, atau bot kamu bisa diakses melalui port standar (port 80 / 443) dengan proteksi SSL/HTTPS aktif.
+
+---
+
+### 1. Wajib: Atur SSL/TLS Cloudflare ke "Flexible"
+
+Jika kamu ingin menghubungkan **Domain Sendiri (Own Domain)**, pastikan domain kamu sudah terdaftar di Cloudflare dan mode SSL/TLS sudah diatur ke **Flexible**:
+
+1. Buka dashboard [Cloudflare](https://dash.cloudflare.com) dan pilih domain kamu.
+2. Di menu sebelah kiri, buka **SSL/TLS** -> **Overview**.
+3. Pilih opsi **Flexible**.
+
+<Frame caption="Pengaturan Mode Enkripsi SSL/TLS Cloudflare wajib Flexible">
+  ![Cloudflare Flexible SSL](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-cloudflare-flexible-ssl.png)
+</Frame>
+
+<Warning>
+**Wajib Flexible!** Jika SSL/TLS disetel ke *Full* atau *Strict*, website kamu akan error **521 Web Server Is Down** atau **525 SSL Handshake Failed**.
+</Warning>
+
+---
+
+### 2. Masuk ke Menu Server Subscription & Tab Domains
+
+1. Masuk ke [Portal Aisbir Cloud](https://portal.aisbirnusantara.com).
+2. Di menu sebelah kiri, klik **Services** -> **Server Subscription**.
+3. Klik tab **Domains** di samping tab Servers.
+4. Klik tombol hijau **Add Domain**.
+
+<Frame caption="Menu Server Subscription - Tab Domains">
+  ![Tab Domains](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-domains-tab.png)
+</Frame>
+
+---
+
+### 3. Pilih Tipe Penambahan Domain
+
+Akan muncul popup dengan 2 pilihan:
+
+- **Create Subdomain**: Menggunakan subdomain gratis dari domain bawaan Aisbir Cloud (contoh: `*.lezats.net`).
+- **Use Own Domain**: Menggunakan domain atau subdomain milik kamu sendiri yang terhubung ke Cloudflare.
+
+<Frame caption="Pilihan Tipe Domain">
+  ![Modal Add Domain](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-add-domain-modal.png)
+</Frame>
+
+---
+
+### Opsi A: Membuat Subdomain Gratis (Create Subdomain)
+
+Jika kamu ingin langsung menggunakan subdomain gratis tanpa perlu membeli domain:
+
+1. Pilih kartu **Create Subdomain**.
+2. **Select Your Server**: Pilih server Pterodactyl yang ingin kamu hubungkan.
+3. Masukkan nama subdomain yang kamu inginkan (misalnya: `play`, `api`, atau `web`).
+4. **Domain Extension**: Pilih ekstensi domain yang tersedia (contoh: `lezats.net`).
+5. Klik tombol hijau **Create Subdomain**.
+
+<Frame caption="Formulir Create Subdomain">
+  ![Create Subdomain](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-create-subdomain.png)
+</Frame>
+
+Subdomain kamu akan langsung aktif otomatis dan siap digunakan!
+
+---
+
+### Opsi B: Menggunakan Domain Sendiri (Use Own Domain)
+
+Gunakan opsi ini jika kamu memiliki domain pribadi (misalnya: `domainkamu.com` atau `app.domainkamu.com`):
+
+1. Pilih kartu **Use Own Domain**.
+2. **Select Your Server**: Pilih server Pterodactyl kamu.
+3. **Your Domain**: Masukkan nama domain atau subdomain kamu.
+4. Klik tombol biru **Generate DNS Records**.
+
+<Frame caption="Formulir Use Own Domain">
+  ![Use Own Domain](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-use-own-domain.png)
+</Frame>
+
+---
+
+### 4. Tambahkan DNS Records di Cloudflare
+
+Setelah menekan tombol *Generate DNS Records*, sistem akan menampilkan 2 baris DNS Record yang harus kamu masukkan ke Cloudflare:
+
+<Frame caption="Informasi DNS Records yang Harus Dikonfigurasi di Cloudflare">
+  ![DNS Records Result](https://id-cdn.aisbirnusantara.com/documentation/reverse-proxy-dns-records.png)
+</Frame>
+
+Buka dashboard Cloudflare kamu di menu **DNS** -> **Records**, lalu tambahkan:
+
+1. **Record A**:
+   - **Type**: `A`
+   - **Name**: `@` (atau nama subdomain kamu jika menggunakan subdomain)
+   - **IPv4 address**: Alamat IP yang tertera pada tabel portal (contoh: `172.93.185.195`)
+   - **Proxy status**: **Proxied** (Awan Orange ☁️ Aktif)
+
+2. **Record TXT**:
+   - **Type**: `TXT`
+   - **Name**: `@` (atau nama subdomain kamu)
+   - **Content**: Nilai TXT dari tabel portal (contoh: `"origin=172.93.185.195 port=pterodactyl"`)
+
+---
+
+## Selesai 🎉
+
+Setelah DNS Cloudflare selesai ditambahkan, domain kamu akan otomatis terhubung ke server Pterodactyl dengan perlindungan SSL Cloudflare aktif!
